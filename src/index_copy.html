@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tracking Platform Test</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+    .margin-top-1 {
+      margin-top: 1em;
+    }
+    a {
+      color: #339900;
+      text-decoration: none
+    }
+    a:focus,
+    a:hover {
+      color: #339900;
+      text-decoration: underline
+    }
+
+  </style>
+</head>
+
+<body class="container" style="width:1600px;">
+  <h2 style="text-align:center">Logistics Platform</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#sectionA" id="home_tab"><i class="fa fa-university"></i> Bill of lading</a>
+    </li>
+    <li><a data-toggle="tab" href="#sectionB" id="product_tab"><i class="fa fa-user"></i> Product</a></li>
+    <li><a data-toggle="tab" href="#sectionC" id="account_tab"><i class="fa fa-copy"></i> Letter of Credit</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="sectionA" class="tab-pane fade in active">
+      <div class="panel panel-success margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Where are you Information</h3>
+        </div>
+        <div class="conainer">
+          <table style="table-layout: fixed" class="table table-striped">
+            <tbody>
+              <tr>
+                <td colspan="6">Where are you ID:</td>
+                <td colspan="12">
+                  <input type="text" class="form-control text-center" id="BillofladingCodeA" placeholder="Bill of lading ID" >
+                </td>
+              </tr>
+              <tr>
+                <div align="center" style="position:relative;top:10px">
+                <td colspan="18" style="text-align:center" align="center">
+                  <button id="okBtnA" class="btn btn-success">454545</button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" id="shipperA">1:</td>
+                <td colspan="6" id="consigneeA">2:</td>
+                <td colspan="6" id="notifypartyA">3:</td>
+              </tr>
+              <tr>
+                <td colspan="6" id="precarriagebyA">4:</td>
+                <td colspan="6" id="placeofreceiptA">5:</td>
+                <td colspan="6" id="oceanvesselA">6:</td>
+              </tr>
+              <tr>
+                <td colspan="6" id="portofloadingA">7:</td>
+                <td colspan="6" id="portofdischargeA">8:</td>
+                <td colspan="6" id="freightandchargesA">9:</td>
+              </tr>
+              <tr>
+                <td colspan="6" id="finaldestinationA">10:</td>
+                <td colspan="6" id="freightpayableatA">11:</td>
+                <td colspan="6" id="marksandnumbersA">12:</td>
+              </tr>
+              <tr>
+                <td colspan="6" id="descriptionA">Description:</td>
+                <td colspan="6" id="grossweightA">Gross Weight:</td>
+                <td colspan="6" id="measurementA">Measurement:</td> 
+              </tr>
+              <tr>
+                <td colspan="6" id="totalpackagesA">Total Packages:</td>
+                <td colspan="6" id="placeanddateofissueA">Place and Date of Issue:</td>
+                <td colspan="6" id="signedforthecarrierA">Signed for the Carrier:</td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Bill of lading list</h3>
+        </div>
+        <div class="panel-body">
+          <div style="height: 200px;overflow:scroll;">
+            <table class="table table-striped">
+              <tr>
+                <th>No.</th>
+                <th>Place of receipt</th>
+                <th>Port of loading</th>
+                <th>Port of discharge</th>
+                <th>Place of deliver</th>
+              </tr>
+              <tbody id="batchListB">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add Bill of lading</h3>
+        </div>
+        <div class="panel-body" >
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Bill of lading number:</td>
+                <td >
+                  <input type="text" class="form-control" id="addBillofladingCodeA" style="text-align: center">
+                </td>
+              </tr>
+              <tr>
+                <td>Place of receipt:</td>
+                <td>
+                  <input type="text" class="form-control" id="addPlaceofreceiptA" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Port of loading:</td>
+                <td>
+                  <input type="text" class="form-control" id="addPortofloadingA" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Port of discharge:</td>
+                <td>
+                  <input type="text" class="form-control" id="addPortofdischargeA" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Place of deliver:</td>
+                <td>
+                  <input type="text" class="form-control" id="addPlaceofdeliverA" style="text-align: center" >
+                </td>
+              </tr>    
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button onclick ="messageregister()"> Update </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="sectionB" class="tab-pane fade">
+      <div class="panel panel-success margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Product Information</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+
+              <tr>
+                <td>Product ID:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="productCodeB" placeholder="product ID" >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="okBtnB" class="btn btn-success">Submit</button>
+                </td>
+                <td colspan="2" style="text-align:center">
+                  <button id="okBtnB2" class="btn btn-success">Submit_Two</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Product Name:</td>
+                <td id="productNameB"></td>
+              </tr>
+              <tr>
+                <td>Company Name:</td>
+                <td id="companyNameB"></td>
+              </tr>
+              <tr>
+                <td>Dispatch Time:</td>
+                <td id="dispatchTimeB"></td>
+              </tr>
+              <tr>
+                <td>Receive Time:</td>
+                <td id="receiveTimeB"></td>
+              </tr>
+              <tr>
+                <td>Dispatch Amount:</td>
+                <td id="dispatchAmountB"></td>
+              </tr>
+			        <tr>
+                <td>Receive Amount:</td>
+                <td id="receiveAmountB"></td>
+              </tr>
+              <tr>
+                <td>Price:</td>
+                <td id="priceB"></td>
+              </tr>  
+			  
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"> Product list</h3>
+        </div>
+        <div class="panel-body">
+          <div style="height: 200px;overflow:scroll;">
+            <table class="table table-striped">
+              <tr>
+                <th>No.</th>
+                <th>Product Name</th>
+                <th>Company Name</th>
+                <th>Dispatch Time</th>
+                <th>Receive Time</th>
+                <th>Dispatch Amount</th>
+				        <th>Receive Amount</th>
+                <th>Forwarder</th>
+              </tr>
+              <tbody id="batchListB">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add Product</h3>
+        </div>
+        <div class="panel-body" >
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Product number:</td>
+                <td >
+                  <input type="text" class="form-control text-center" id="addproductnumberB" placeholder="product number" >
+                </td>
+              </tr>
+              <tr>
+                <td>Product name:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="addproductnameB" placeholder="product name" >
+                </td>
+              </tr>
+              <tr>
+                <td>Company name:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="addcompanynameB" placeholder="company name" >
+                </td>
+              </tr>
+              <tr>
+                <td>Dispatch time:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="adddispatchtimeB" placeholder="dispatch time" >
+                </td>
+              </tr>
+              <tr>
+                <td>Receive time:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="addreceivetimeB" placeholder="receive time" >
+                </td>
+              </tr>
+              <tr>
+                <td>Dispatch amount:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="adddispatchamountB" placeholder="dispatch amount" >
+                </td>
+              </tr>
+              <tr>
+                <td>Receive amount:</td>
+                <td>
+                  <input type="text" class="form-control text-center" id="addreceiveamountB" placeholder="receive amount" >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="addBtnA" class="btn btn-success">Update</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="sectionC" class="tab-pane fade">
+      <div class="panel panel-success margin-top-1">
+        <div class="panel-heading">
+          <h3 class="panel-title">Letter of Credit Search</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tbody>
+
+              <tr>
+                <td>Letter of Credit Id:</td>
+                <td>
+                  <input type="text" class="form-control" id="productCodeC">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="okBtnC" class="btn btn-success">Submit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Letter of Credit List</h3>
+        </div>
+        <div class="panel-body">
+          <div style="height: 200px;overflow:scroll;">
+            <table class="table table-striped">
+              <tr>
+                <th>No.</th>
+                <th>Issuing Bank name</th>
+                <th>Advising Bank name</th>
+                <th>Issuing Date</th>
+                <th>Expiration Date</th>
+              </tr>
+              <tbody id="transactionListC">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add Letter of Credit</h3>
+        </div>
+        <div class="panel-body" >
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Letter of Credit number:</td>
+                <td >
+                  <input type="text" class="form-control" id="letterofcreditC" style="text-align: center">
+                </td>
+              </tr>
+              <tr>
+                <td>Issuing Bank name:</td>
+                <td>
+                  <input type="text" class="form-control" id="IssuingBankC" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Advising Bank name:</td>
+                <td>
+                  <input type="text" class="form-control" id="AdvisingBankC" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Issuing Date:</td>
+                <td>
+                  <input type="text" class="form-control" id="IssuingDateC" style="text-align: center" >
+                </td>
+              </tr>
+              <tr>
+                <td>Expiration Date:</td>
+                <td>
+                  <input type="text" class="form-control" id="ExpirationDateC" style="text-align: center" >
+                </td>
+              </tr>    
+              <tr>
+                <td colspan="2" style="text-align:center">
+                  <button id="addBtnC" class="btn btn-success">Update</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+
+</html>

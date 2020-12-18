@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page nhaha</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./register.css">
+</head>
+
+<body class="my-register-page">
+  <section class="h-100">
+    <div class="container h-100">
+      <h2 style="text-align:center">註冊</h2>
+      <div class="row justify-content-md-center h-100">
+        <div class="card-wrapper">
+
+          <div class="form-group">
+              <label for="account">帳號<span style="color:red">*</span></label>
+              <input id="accountregisterA" type="text" class="form-control" name="accountregisterA" required autofocus>
+          </div>
+
+          <div class="form-group">
+                <label for="password">密碼<span style="color:red">*</span></label>
+                <input id="passwordregisterA" type="password" class="form-control" name="passwordregisterA" required autofocus>
+          </div>
+
+          <div class="form-group">
+                <label for="password">確認密碼<span style="color:red">*</span></label>
+                <input id="passwordcheckregisterA" type="password" class="form-control" name="passwordcheckregisterA" required autofocus>
+          </div>
+
+
+          <div class="form-group">
+                <label for="roleoption">職業類別</label>
+                <select id="user_career_register">
+                  <option value="careerexporter">Exporter</option>
+                  <option value="careerimporter">Importer</option>
+                  <option value="careeradvisingbank">Advising Bank</option>
+                  <option value="careerissuingbank">Issuing Bank</option>
+                  <option value="careercarrier">Carrier</option>
+                </select>
+          </div>
+          
+          <div class="form-group text-center">
+
+                <button type="button" id="okBtnRegisterA"  class="btn btn-info" data-target="login.html" >Register</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="login_register.js"></script>
+
+</html>
