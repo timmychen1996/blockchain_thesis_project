@@ -1,4 +1,5 @@
 
+/*2020/12/19 I also changes bill_of_ladbasic*/
 var contractABI_bill_of_ladbasic = [
   {
     "constant": false,
@@ -61,6 +62,10 @@ var contractABI_bill_of_ladbasic = [
     "inputs": [
       {
         "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "theTime",
         "type": "uint256"
       },
       {
@@ -1664,7 +1669,6 @@ var contractABI_BLTransfer=[
 ];
 Web3 = require('web3');
 
-
 var contractAddress_product = '0xEe54eEfC86D835DD187cBb6e6d898BB95e52923B';
 var contractAddress_letter_of_credit = '0x62E41264c9b16c70789feAFa80D779e0B6dF1199';
 var contractAddress_route = '0xce9882a7259970Cb0dD17FA4B4e55367ee18D3f4';
@@ -1699,11 +1703,11 @@ var defaultGas = 4700000;
 var BL_list_index = 0;
 
 
-
-function setBillofLadingone(BLnumber, Importer, Exporter, notifyparty,
+/*2020/12/19 add*/
+function setBillofLadingone(theBLnumber, theBLtime, Importer, Exporter, notifyparty,
   pre_carriage_by, place_of_receipt, ocean_vessel_voy_no){
     
-  return BillofladbasiconePseudoRest.methods.setBillofLadingone(BLnumber, Importer, Exporter, notifyparty,
+  return BillofladbasiconePseudoRest.methods.setBillofLadingone(theBLnumber, theBLtime, Importer, Exporter, notifyparty,
   pre_carriage_by, place_of_receipt, ocean_vessel_voy_no).send(
   {
     from: '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b',
@@ -2626,7 +2630,7 @@ async function addBilloflading(result){
     var bill_of_lading_registered_day = cur_day + "/" + cur_month + "/" + cur_year;
     var bill_of_lading_registered_time = current_time.toTimeString();
     
-    let bill_one = await setBillofLadingone(bill_of_lading_id, importer, exporter, notify_party, pre_carriage_by, place_of_receipt, ocean_vessel_voy_no);
+    let bill_one = await setBillofLadingone(bill_of_lading_id, bill_of_lading_registered_time, importer, exporter, notify_party, pre_carriage_by, place_of_receipt, ocean_vessel_voy_no);
     let bill_two = await setBillofLadingtwo(bill_of_lading_id, port_of_loading, port_of_discharge, freight_and_charges, final_destination, freight_payable_at, marks_numbers);
     let bill_final = await setBillofLadingfinal(bill_of_lading_id, description, gross_weight, measurement, total_packages, place_and_date_of_issue, signed_for_the_carrier);
     let bill_final_day = await setBillofLadingday(bill_of_lading_id, bill_of_lading_registered_day);

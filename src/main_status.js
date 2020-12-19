@@ -488,7 +488,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "accept",
+    "name": "request",
     "outputs": [
       {
         "name": "",
@@ -519,7 +519,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "bookingtheSeats",
+    "name": "showtheBL",
     "outputs": [
       {
         "name": "",
@@ -528,6 +528,20 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBLlength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -550,13 +564,31 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "deliverBL",
+    "name": "taketheStuff",
     "outputs": [
       {
         "name": "",
         "type": "uint256"
       }
     ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "uint256"
+      }
+    ],
+    "name": "setBL",
+    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -612,6 +644,106 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
+    "name": "loadingonShipNotification",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "accept",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
     "name": "loadingonShip",
     "outputs": [
       {
@@ -643,7 +775,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "loadingonShipNotification",
+    "name": "bookingtheSeats",
     "outputs": [
       {
         "name": "",
@@ -652,147 +784,6 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "request",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "thetime",
-        "type": "uint256"
-      }
-    ],
-    "name": "setBL",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "showtheBL",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "taketheStuff",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "name": "AccountyKey_addr",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "BL",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -812,6 +803,37 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "deliverBL",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -843,11 +865,16 @@ var contractABI_BLTransfer =[
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "getBLlength",
-    "outputs": [
+    "inputs": [
       {
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "BL",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
         "type": "uint256"
       }
     ],
@@ -856,42 +883,15 @@ var contractABI_BLTransfer =[
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingId",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
+        "name": "AccountyKey_addr",
+        "type": "address"
       }
     ],
     "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
 
@@ -1132,13 +1132,16 @@ function getBLMappingId(index){
 
 }
 
+
 function getBLMappingIndex(theBLnumber){
 
   return BLtransferPseudoRest.methods.getBLMappingIndex(theBLnumber).call().then( function(BL_index){  
       return BL_index;
   });
-
 }
+
+
+
 
 function getAccountCareer(career){
 
@@ -1148,9 +1151,64 @@ function getAccountCareer(career){
 
 }
 
-function messageencrypted(theBLnumber, address_one, address_two, encrypted_message){
+function getAccountKey(account){
 
-  return AccountPseudoRest.methods.setEncryptedMessage(theBLnumber, address_one, address_two, encrypted_message).send(
+  return AccountPseudoRest.methods.getAccountKey(account).call().then( function(key){
+      return key; 
+  });
+}
+
+/*2020/12/19 add*/
+function getStackLength(){
+  return AccountPseudoRest.methods.getStackLength().call().then( function( queue_length ){
+      return queue_length;
+  });  
+}
+
+/*2020/12/19 add*/
+function getMessageQueueIndex(theBLnumber){
+
+  return AccountPseudoRest.methods.getMessageStackMappingIndex(theBLnumber).call().then(function(theBLnumber){
+      return theBLindex;
+  });
+
+}
+
+/*2020/12/19 add*/
+function getEncryptMappingIndex(theBLnumber){
+
+  return AccountPseudoRest.methods.getEncryptMappingIndex(theBLnumber).call().then(function(theBLnumber){
+      return theBLindex;
+  });
+
+}
+
+function getencryptedmessage(theBLnumber, address_one, address_two){
+
+   return AccountPseudoRest.methods.getEncryptedMessage(theBLnumber, address_one, address_two).call().then( function(result){
+       return result;
+   });
+
+}
+
+/*2020/12/19 add*/
+function getencryptedmessagefromstack(theBLnumber, queue_index){
+    
+    return AccountPseudoRest.methods.getEncryptedMessagefromStack(theBLnumber, queue_index).call().then(function(result){
+        return result;
+    });
+}
+
+
+
+
+
+
+/*2020/12/19 add*/
+/*We put the time situation into the consideration*/
+function messageencrypted(theBLnumber, address_one, address_two, thetime, encrypted_message){
+
+  return AccountPseudoRest.methods.setEncryptedMessage(theBLnumber, address_one, address_two, thetime, encrypted_message).send(
   {
     from: '0x3C95107cAd460D3989F2dB09606BB436c2f47482',
     gas: defaultGas
@@ -1168,15 +1226,6 @@ function messageencrypted(theBLnumber, address_one, address_two, encrypted_messa
 }
 
 
-function getencryptedmessage(theBLnumber, address_one, address_two){
-
-   return AccountPseudoRest.methods.getEncryptedMessage(theBLnumber, address_one, address_two).call().then( function(result){
-       return result;
-   });
-
-}
-
-
 /*2020/11/17 add*/
 function encryptedmessagereturn(message, senderPrivateKey, recipientPublicKey){
    return eth_rsa.encryptMessage(message, senderPrivateKey, recipientPublicKey).then( function(result){
@@ -1189,6 +1238,8 @@ function decryptedmessagereturn(encrypted_message, recipientPrivateKey, senderPu
        return result;
    });
 }
+
+
 
 async function request_from_Importer_and_encrypt( theBLindex, address_one, address_two, address_three ){
   
@@ -1221,6 +1272,7 @@ async function request_from_Importer_and_encrypt( theBLindex, address_one, addre
   let encrypt_finish_two = await messageencrypted(BL_number, address_one, address_three, encrypted_message_two);
 
 }
+
 
 async function request_from_Importer_and_showtheBL( theBLindex, address_one, address_two, address_three){
 
