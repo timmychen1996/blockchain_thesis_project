@@ -407,8 +407,8 @@ qrcode = require('qrcode');
 ethers = require('ethers');
 InputDataDecoder = require('ethereum-input-data-decoder');
 
-var contractAddress_user_login_register = '0x615b01B3b35920e104F5710208e847E0699EB53f';
-var contractAddress_account_key = '0xc04C857d1c3D67498C41A84A473e201E8c30B2A0';
+var contractAddress_user_login_register = '0x88ebf5Db99f1c6B401055f7f6852cAE77D02CD6e';
+var contractAddress_account_key = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -418,7 +418,6 @@ var AccountPseudoRest = new web3.eth.Contract( contractABI_account_key_message, 
 /*var Message = MessagePseudoRest.at(contractAddress);*/
 
 var defaultGas = 900000;
-
 /*2020/10/26 add*/
 /*we don't need the global_secret now*/
 /*var global_secret = generateSecret();*/

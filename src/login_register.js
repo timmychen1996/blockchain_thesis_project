@@ -92023,33 +92023,6 @@ var contractABI_user_login_register = [
 
 var contractABI_account_key_message =[
   {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      }
-    ],
-    "name": "getEncryptedMessage",
-    "outputs": [
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "constant": false,
     "inputs": [
       {
@@ -92068,18 +92041,160 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": true,
+    "constant": false,
     "inputs": [
       {
         "name": "theBLnumber",
         "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "uint256"
       }
     ],
-    "name": "getEncryptMappingIndex",
+    "name": "setEncrypt",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "thetime",
+        "type": "uint256"
+      },
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "name": "setEncryptedMessage",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encrypt",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encrypt_message_list",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
+        "type": "uint256"
+      },
+      {
+        "name": "from_address",
+        "type": "address"
+      },
+      {
+        "name": "to_address",
+        "type": "address"
+      },
+      {
+        "name": "_message_registration_time",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encryptmapping_index",
     "outputs": [
       {
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encryptmessage_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_career",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountCareer",
+    "outputs": [
+      {
+        "name": "_account",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -92109,39 +92224,6 @@ var contractABI_account_key_message =[
     "constant": true,
     "inputs": [
       {
-        "name": "_career",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountCareer",
-    "outputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "setEncrypt",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
         "name": "theBLnumber",
         "type": "uint256"
       },
@@ -92152,33 +92234,50 @@ var contractABI_account_key_message =[
       {
         "name": "address_two",
         "type": "address"
+      }
+    ],
+    "name": "getEncryptedMessage",
+    "outputs": [
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "queue_index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getEncryptedMessagefromStack",
+    "outputs": [
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "_message_registration_time",
+        "type": "uint256"
       },
       {
         "name": "encrypted_message",
         "type": "string"
       }
     ],
-    "name": "setEncryptedMessage",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encrypt",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      }
-    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -92187,11 +92286,11 @@ var contractABI_account_key_message =[
     "constant": true,
     "inputs": [
       {
-        "name": "",
+        "name": "theBLnumber",
         "type": "uint256"
       }
     ],
-    "name": "Encryptmapping_index",
+    "name": "getEncryptMappingIndex",
     "outputs": [
       {
         "name": "",
@@ -92203,11 +92302,38 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMessageStackMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [],
+    "name": "getStackLength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  } 
+    "stateMutability": "view",
+    "type": "function"
+  }
 ];
 
 /*2020/6/16*/
@@ -92228,7 +92354,6 @@ var AccountPseudoRest = new web3.eth.Contract( contractABI_account_key_message, 
 /*var Message = MessagePseudoRest.at(contractAddress);*/
 
 var defaultGas = 900000;
-
 /*2020/10/26 add*/
 /*we don't need the global_secret now*/
 /*var global_secret = generateSecret();*/
