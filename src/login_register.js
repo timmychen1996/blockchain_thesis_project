@@ -92023,6 +92023,124 @@ var contractABI_user_login_register = [
 
 var contractABI_account_key_message =[
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encryptmessage_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "queue_index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getEncryptedMessagefromStack",
+    "outputs": [
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "_message_registration_time",
+        "type": "string"
+      },
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      }
+    ],
+    "name": "setEncrypt",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMessageStackMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      }
+    ],
+    "name": "getEncryptedMessage",
+    "outputs": [
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -92041,21 +92159,74 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
+    "inputs": [],
+    "name": "getStackLength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "theBLnumber",
         "type": "uint256"
-      },
+      }
+    ],
+    "name": "getEncryptMappingIndex",
+    "outputs": [
       {
-        "name": "thetime",
+        "name": "",
         "type": "uint256"
       }
     ],
-    "name": "setEncrypt",
-    "outputs": [],
     "payable": false,
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountKey",
+    "outputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_career",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountCareer",
+    "outputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -92075,7 +92246,7 @@ var contractABI_account_key_message =[
       },
       {
         "name": "thetime",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "name": "encrypted_message",
@@ -92087,12 +92258,6 @@ var contractABI_account_key_message =[
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
-  },
-  {
-    "inputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
   },
   {
     "constant": true,
@@ -92137,7 +92302,7 @@ var contractABI_account_key_message =[
       },
       {
         "name": "_message_registration_time",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "payable": false,
@@ -92164,175 +92329,10 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encryptmessage_index",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_career",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountCareer",
-    "outputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountKey",
-    "outputs": [
-      {
-        "name": "_key",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      }
-    ],
-    "name": "getEncryptedMessage",
-    "outputs": [
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "queue_index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getEncryptedMessagefromStack",
-    "outputs": [
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "_message_registration_time",
-        "type": "uint256"
-      },
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getEncryptMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getMessageStackMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [],
-    "name": "getStackLength",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
     "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
 
@@ -92343,8 +92343,8 @@ qrcode = require('qrcode');
 ethers = require('ethers');
 InputDataDecoder = require('ethereum-input-data-decoder');
 
-var contractAddress_user_login_register = '0x88ebf5Db99f1c6B401055f7f6852cAE77D02CD6e';
-var contractAddress_account_key = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
+var contractAddress_user_login_register = '0x615b01B3b35920e104F5710208e847E0699EB53f';
+var contractAddress_account_key = '0xc04C857d1c3D67498C41A84A473e201E8c30B2A0';
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -92374,6 +92374,7 @@ function registerUserInfo( user_account, user_password, user_role_option, user_a
       }     
   });
 }
+
 
 async function user_role_to_ganache_account(user_role_option){
 

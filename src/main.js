@@ -9,24 +9,6 @@ var contractABI_bill_of_ladbasic = [
         "type": "uint256"
       },
       {
-        "name": "bill_of_lading_day",
-        "type": "string"
-      }
-    ],
-    "name": "setBillofLadingDay",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
         "name": "description",
         "type": "string"
       },
@@ -58,72 +40,15 @@ var contractABI_bill_of_ladbasic = [
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
     "inputs": [
       {
-        "name": "theBLnumber",
+        "name": "BLnumber",
         "type": "uint256"
-      },
-      {
-        "name": "theTime",
-        "type": "uint256"
-      },
-      {
-        "name": "Importer",
-        "type": "string"
-      },
-      {
-        "name": "Exporter",
-        "type": "string"
-      },
-      {
-        "name": "notifyparty",
-        "type": "string"
-      },
-      {
-        "name": "pre_carriage_by",
-        "type": "string"
-      },
-      {
-        "name": "place_of_receipt",
-        "type": "string"
-      },
-      {
-        "name": "ocean_vessel_voy_no",
-        "type": "string"
       }
     ],
-    "name": "setBillofLadingone",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "bill_of_lading_time",
-        "type": "string"
-      }
-    ],
-    "name": "setBillofLadingTime",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
+    "name": "getBillofLadingtwo",
+    "outputs": [
       {
         "name": "port_of_loading",
         "type": "string"
@@ -146,38 +71,6 @@ var contractABI_bill_of_ladbasic = [
       },
       {
         "name": "marks_numbers",
-        "type": "string"
-      }
-    ],
-    "name": "setBillofLadingtwo",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "name": "BLTransfer_addr",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "BLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBillofLadingDay",
-    "outputs": [
-      {
-        "name": "bill_of_lading_day",
         "type": "string"
       }
     ],
@@ -283,15 +176,54 @@ var contractABI_bill_of_ladbasic = [
     "type": "function"
   },
   {
-    "constant": true,
+    "constant": false,
     "inputs": [
       {
-        "name": "BLnumber",
+        "name": "theBLnumber",
         "type": "uint256"
+      },
+      {
+        "name": "theTime",
+        "type": "string"
+      },
+      {
+        "name": "Importer",
+        "type": "string"
+      },
+      {
+        "name": "Exporter",
+        "type": "string"
+      },
+      {
+        "name": "notifyparty",
+        "type": "string"
+      },
+      {
+        "name": "pre_carriage_by",
+        "type": "string"
+      },
+      {
+        "name": "place_of_receipt",
+        "type": "string"
+      },
+      {
+        "name": "ocean_vessel_voy_no",
+        "type": "string"
       }
     ],
-    "name": "getBillofLadingtwo",
-    "outputs": [
+    "name": "setBillofLadingone",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
       {
         "name": "port_of_loading",
         "type": "string"
@@ -317,9 +249,77 @@ var contractABI_bill_of_ladbasic = [
         "type": "string"
       }
     ],
+    "name": "setBillofLadingtwo",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "BLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBillofLadingDay",
+    "outputs": [
+      {
+        "name": "bill_of_lading_day",
+        "type": "string"
+      }
+    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "bill_of_lading_day",
+        "type": "string"
+      }
+    ],
+    "name": "setBillofLadingDay",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "bill_of_lading_time",
+        "type": "string"
+      }
+    ],
+    "name": "setBillofLadingTime",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "BLTransfer_addr",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
 
@@ -1265,7 +1265,7 @@ var contractABI_BLTransfer=[
         "type": "address"
       }
     ],
-    "name": "accept",
+    "name": "request",
     "outputs": [
       {
         "name": "",
@@ -1296,7 +1296,7 @@ var contractABI_BLTransfer=[
         "type": "address"
       }
     ],
-    "name": "bookingtheSeats",
+    "name": "showtheBL",
     "outputs": [
       {
         "name": "",
@@ -1305,6 +1305,20 @@ var contractABI_BLTransfer=[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBLlength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -1327,13 +1341,31 @@ var contractABI_BLTransfer=[
         "type": "address"
       }
     ],
-    "name": "deliverBL",
+    "name": "taketheStuff",
     "outputs": [
       {
         "name": "",
         "type": "uint256"
       }
     ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      }
+    ],
+    "name": "setBL",
+    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1389,6 +1421,106 @@ var contractABI_BLTransfer=[
         "type": "address"
       }
     ],
+    "name": "loadingonShipNotification",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "accept",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
     "name": "loadingonShip",
     "outputs": [
       {
@@ -1420,7 +1552,7 @@ var contractABI_BLTransfer=[
         "type": "address"
       }
     ],
-    "name": "loadingonShipNotification",
+    "name": "bookingtheSeats",
     "outputs": [
       {
         "name": "",
@@ -1429,143 +1561,6 @@ var contractABI_BLTransfer=[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "request",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "setBL",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "showtheBL",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "taketheStuff",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "name": "AccountyKey_addr",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "BL",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -1585,6 +1580,37 @@ var contractABI_BLTransfer=[
     ],
     "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "deliverBL",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -1616,11 +1642,16 @@ var contractABI_BLTransfer=[
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "getBLlength",
-    "outputs": [
+    "inputs": [
       {
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "BL",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
         "type": "uint256"
       }
     ],
@@ -1629,51 +1660,26 @@ var contractABI_BLTransfer=[
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingId",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
+        "name": "AccountyKey_addr",
+        "type": "address"
       }
     ],
     "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
+
+
 Web3 = require('web3');
 
 var contractAddress_product = '0xEe54eEfC86D835DD187cBb6e6d898BB95e52923B';
 var contractAddress_letter_of_credit = '0x62E41264c9b16c70789feAFa80D779e0B6dF1199';
 var contractAddress_route = '0xce9882a7259970Cb0dD17FA4B4e55367ee18D3f4';
-var contractAddress_BL_transfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C'; 
-var contractAddress_bill_of_ladbasic = '0x01BB5B66bd040E57495d3526670C757b600665fc';
+var contractAddress_BL_transfer = '0x6faAF3bF0291B85b47C96CA340036cd69ce35a17'; 
+var contractAddress_bill_of_ladbasic = '0xD63899e94F69faB37Ab6aE6e8585351b68EfAF00';
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -3228,7 +3234,6 @@ async function show_recent_bill_of_ladings(){
             /*2020/12/14 add*/
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+ BL_number +'</td><td>' +
             bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Importer.html">查詢/修改</a></td></tr>');
-            console.log("Good evil");
           }
           if( index+1 == number_of_bol){
             return true;

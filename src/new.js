@@ -92662,6 +92662,124 @@ var contractABI_LCtransfer=[
 
 var contractABI_account_key_message =[
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encryptmessage_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "queue_index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getEncryptedMessagefromStack",
+    "outputs": [
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "_message_registration_time",
+        "type": "string"
+      },
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      }
+    ],
+    "name": "setEncrypt",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getMessageStackMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      }
+    ],
+    "name": "getEncryptedMessage",
+    "outputs": [
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -92680,21 +92798,74 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
+    "inputs": [],
+    "name": "getStackLength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "theBLnumber",
         "type": "uint256"
-      },
+      }
+    ],
+    "name": "getEncryptMappingIndex",
+    "outputs": [
       {
-        "name": "thetime",
+        "name": "",
         "type": "uint256"
       }
     ],
-    "name": "setEncrypt",
-    "outputs": [],
     "payable": false,
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountKey",
+    "outputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_career",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountCareer",
+    "outputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -92714,7 +92885,7 @@ var contractABI_account_key_message =[
       },
       {
         "name": "thetime",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "name": "encrypted_message",
@@ -92726,12 +92897,6 @@ var contractABI_account_key_message =[
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
-  },
-  {
-    "inputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
   },
   {
     "constant": true,
@@ -92776,7 +92941,7 @@ var contractABI_account_key_message =[
       },
       {
         "name": "_message_registration_time",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "payable": false,
@@ -92803,175 +92968,10 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encryptmessage_index",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_career",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountCareer",
-    "outputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountKey",
-    "outputs": [
-      {
-        "name": "_key",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      }
-    ],
-    "name": "getEncryptedMessage",
-    "outputs": [
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "queue_index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getEncryptedMessagefromStack",
-    "outputs": [
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "_message_registration_time",
-        "type": "uint256"
-      },
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getEncryptMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getMessageStackMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [],
-    "name": "getStackLength",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
     "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
 
@@ -92996,7 +92996,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "accept",
+    "name": "request",
     "outputs": [
       {
         "name": "",
@@ -93027,7 +93027,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "bookingtheSeats",
+    "name": "showtheBL",
     "outputs": [
       {
         "name": "",
@@ -93036,6 +93036,20 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBLlength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -93058,13 +93072,31 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "deliverBL",
+    "name": "taketheStuff",
     "outputs": [
       {
         "name": "",
         "type": "uint256"
       }
     ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      }
+    ],
+    "name": "setBL",
+    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -93120,6 +93152,106 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
+    "name": "loadingonShipNotification",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "accept",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBLMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
     "name": "loadingonShip",
     "outputs": [
       {
@@ -93151,7 +93283,7 @@ var contractABI_BLTransfer =[
         "type": "address"
       }
     ],
-    "name": "loadingonShipNotification",
+    "name": "bookingtheSeats",
     "outputs": [
       {
         "name": "",
@@ -93160,147 +93292,6 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "request",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "thetime",
-        "type": "uint256"
-      }
-    ],
-    "name": "setBL",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "showtheBL",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "address_three",
-        "type": "address"
-      }
-    ],
-    "name": "taketheStuff",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "name": "AccountyKey_addr",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "BL",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -93320,6 +93311,37 @@ var contractABI_BLTransfer =[
     ],
     "payable": false,
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "address_three",
+        "type": "address"
+      }
+    ],
+    "name": "deliverBL",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -93351,11 +93373,16 @@ var contractABI_BLTransfer =[
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "getBLlength",
-    "outputs": [
+    "inputs": [
       {
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "BL",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
         "type": "uint256"
       }
     ],
@@ -93364,42 +93391,15 @@ var contractABI_BLTransfer =[
     "type": "function"
   },
   {
-    "constant": true,
     "inputs": [
       {
-        "name": "index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingId",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
+        "name": "AccountyKey_addr",
+        "type": "address"
       }
     ],
     "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getBLMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   }
 ];
 
@@ -93410,9 +93410,9 @@ qrcode = require('qrcode');
 eth_rsa = require('ethereum-rsa');
 ethers = require('ethers');
 
-var contractAddress_LCtransfer = '0xF4799B5d43bF682d9Fb70076C0a09B53c5B3C403';
-var contractAddress_account_key_message = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
-var contractAddress_BLtransfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C';
+var contractAddress_LCtransfer = '0x799EBAbEdE8BEe6CE951124230524502Eb990625';
+var contractAddress_account_key_message = '0xc04C857d1c3D67498C41A84A473e201E8c30B2A0';
+var contractAddress_BLtransfer = '0x6faAF3bF0291B85b47C96CA340036cd69ce35a17';
 
 
 
@@ -93552,6 +93552,8 @@ function showtheBL(theBLindex, address_one, address_two, address_three){
     gas: defaultGas
   }).then( function(error,result){
       
+      console.log("What is the val of result");
+      console.log(result);
       if(result){
           console.log("Oh yeah we found that the Importer can showtheBL");
           console.log("result %o",result);
@@ -93585,7 +93587,7 @@ function issueDO(theBLindex, address_one, address_two, address_three){
 
 function taketheStuff(theBLindex, address_one, address_two, address_three){
 
-  return BLtransferPsedudoRest.methods.taketheStuff( theBLindex, address_one, address_two, address_three).send(
+  return BLtransferPseudoRest.methods.taketheStuff( theBLindex, address_one, address_two, address_three).send(
   {
     from: '0x3C95107cAd460D3989F2dB09606BB436c2f47482',
     gas: defaultGas
@@ -93598,14 +93600,13 @@ function taketheStuff(theBLindex, address_one, address_two, address_three){
       else{
         console.log(error);
       }
-
   }); 
 }
 
 
 function deliverBL(theBLindex, address_one, address_two, address_three){
 
-  return BLtransferPsedudoRest.methods.deliverBL( theBLindex, address_one, address_two, address_three).send(
+  return BLtransferPseudoRest.methods.deliverBL( theBLindex, address_one, address_two, address_three).send(
   {
     from: '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28',
     gas: defaultGas
@@ -93659,12 +93660,6 @@ function getAccountCareer(career){
 
 }
 
-function getAccountKey(account){
-
-  return AccountPseudoRest.methods.getAccountKey(account).call().then( function(key){
-      return key; 
-  });
-}
 
 /*2020/12/19 add*/
 function getStackLength(){
@@ -93706,10 +93701,6 @@ function getencryptedmessagefromstack(theBLnumber, queue_index){
         return result;
     });
 }
-
-
-
-
 
 
 /*2020/12/19 add*/
@@ -93756,7 +93747,10 @@ async function request_from_Importer_and_encrypt( theBLindex, address_one, addre
   message two relates to address_one and address_three*/
   /*address_two's public key relates to recipientPublicKey_all_one*/
   /*address_three's public key relates to recipientPUblicKey_all_two*/
-
+  
+  /*2020/12/21*/
+  /*For encrption, we only need encrypted_message_one, no need for encrypted_message_two
+  so we comment out with the recipientPublicKey_two, encrypted_message_two and encrypt_finish_two*/
   let request_from_Importer = await requestfromImporter( theBLindex, address_one, address_two, address_three);
   let message_number_one = await getBLTransferstate( theBLindex, address_one, address_two);
   let message_number_two = await getBLTransferstate(theBLindex, address_one, address_three);
@@ -93766,24 +93760,29 @@ async function request_from_Importer_and_encrypt( theBLindex, address_one, addre
 
   var senderPrivateKey = '2efb9347340bec06148b2b1dd9748c7e08f07f815df04159bbd001ae73bf7c2b';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/
   
 
   let encrypted_message_one = await encryptedmessagereturn(message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn(message_two, senderPrivateKey, recipientPublicKey_two);
-
+  /*let encrypted_message_two = await encryptedmessagereturn(message_two, senderPrivateKey, recipientPublicKey_two);*/
+  
   let BL_number = await getBLMappingId( theBLindex );
-  let encrypt_finish_one = await messageencrypted(BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted(BL_number, address_one, address_three, encrypted_message_two);
+
+  /*2020/12/20 here we need to add the time consideration*/
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var request_from_Importer_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted(BL_number, address_one, address_two, request_from_Importer_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted(BL_number, address_one, address_three, request_from_Importer_time, encrypted_message_two);*/
 
 }
 
 
 async function request_from_Importer_and_showtheBL( theBLindex, address_one, address_two, address_three){
-
 
   let showtheBL_from_Importer = await showtheBL( theBLindex, address_one, address_two, address_three);
   let message_number_one = await getBLTransferstate( theBLindex, address_one, address_two);
@@ -93793,17 +93792,23 @@ async function request_from_Importer_and_showtheBL( theBLindex, address_one, add
 
   var senderPrivateKey = '2efb9347340bec06148b2b1dd9748c7e08f07f815df04159bbd001ae73bf7c2b';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
   
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
-  
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
+
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
 
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+
+  /*2020/12/20 here we need to add the time consideration*/
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var showBL_from_Importer_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, showBL_from_Importer_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, showBL_from_Importer_time, encrypted_message_two);*/
 
 }
 
@@ -93818,17 +93823,23 @@ async function request_from_Importer_and_taketheStuff( theBLindex, address_one, 
 
   var senderPrivateKey = '2efb9347340bec06148b2b1dd9748c7e08f07f815df04159bbd001ae73bf7c2b';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
   
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+
+  /*2020/12/20 here we need to add the time consideration*/
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var taketheStuff_from_Importer_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, taketheStuff_from_Importer_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, taketheStuff_from_Importer_time, encrypted_message_two);*/
 
 }
 
@@ -93836,7 +93847,6 @@ async function request_from_Importer_and_taketheStuff( theBLindex, address_one, 
 async function accept_from_Exporter_and_encrypt( theBLindex, address_one, address_two, address_three){
 
   let accept_from_Exporter = await accepts( theBLindex, address_one, address_two, address_three);
-  console.log("Accept from Exporter"); 
   let message_number_one = await getBLTransferstate(theBLindex, address_one, address_two);
   let message_number_two = await getBLTransferstate(theBLindex, address_one, address_three);
 
@@ -93845,17 +93855,22 @@ async function accept_from_Exporter_and_encrypt( theBLindex, address_one, addres
 
   var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
   
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+  /*2020/12/21 here we need to add the time consideration*/
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var accept_from_Exporter_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, accept_from_Exporter_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, accept_from_Exporter_time, encrypted_message_two);*/
   
 }
 
@@ -93871,19 +93886,23 @@ async function book_from_Exporter_and_encrypt( theBLindex, address_one, address_
 
   var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/
 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
 
-
+  /*2020/12/21 add*/
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var book_from_Exporter_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, book_from_Exporter_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, book_from_Exporter_time, encrypted_message_two);*/
 
 }
 
@@ -93901,14 +93920,19 @@ async function loadonship_from_Exporter_and_encrypt( theBLindex, address_one, ad
   let recipientPublicKey_all_two = await getaccountpublickey(address_three);
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
 
+  /*2020/12/21 add*/
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var loadonship_from_Exporter_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, loadonship_from_Exporter_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, loadonship_from_Exporter_time, encrypted_message_two);*/
 
 }
 
@@ -93926,14 +93950,19 @@ async function shipnotification_from_Exporter_and_encrypt( theBLindex, address_o
   let recipientPublicKey_all_two = await getaccountpublickey(address_three);
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
 
+  /*2020/12/21 add*/
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted(  BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted(  BL_number, address_one, address_three, encrypted_message_two);
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var shipnotification_from_Exporter_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted(  BL_number, address_one, address_two, shipnotification_from_Exporter_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted(  BL_number, address_one, address_three, shipnotification_from_Exporter_time, encrypted_message_two);*/
 
 }
 
@@ -93952,14 +93981,19 @@ async function deliverBL_from_Carrier_and_encrypt( theBLindex, address_one, addr
   let recipientPublicKey_all_two = await getaccountpublickey(address_three);
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
-
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
+  
+  /*2020/12/21 add*/
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var deliverBL_from_Carrier_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, deliverBL_from_Carrier_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, deliverBL_from_Carrier_time, encrypted_message_two);*/
 
 }
 
@@ -93971,19 +94005,24 @@ async function issueDO_from_Carrier_and_encrypt( theBLindex, address_one, addres
 
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
+
   var senderPrivateKey = '8507ddebae43d3c7cfe0a4c6fefde7c51d70974c1c84eeac5c59a6b545ea9c17';
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
   let recipientPublicKey_all_two = await getaccountpublickey(address_three);
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
-  var recipientPublicKey_two = recipientPublicKey_all_two.substring(2); 
+  /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
 
   let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
-  let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);
-
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
+  
   let BL_number = await getBLMappingId(theBLindex);
-  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, encrypted_message_one);
-  let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, encrypted_message_two);
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var issueDO_from_Carrier_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, issueDO_from_Carrier_time, encrypted_message_one);
+  /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, issueDO_from_Carrier_time, encrypted_message_two);*/
 
 }
 
@@ -94119,13 +94158,14 @@ async function query_from_Carrier_and_decrypt(theBLnumber){
 
 async function query_from_Importer_and_decrypt(theBLnumber){
 
-  console.log("Now_is_Importer_querying!!!!");
+  console.log("Importer_querying_the_Stuff!!!!");
   var address_one = await getAccountCareer('Importer');
   var address_two = $("#account_two_status_Importer_unit").val();
 
   var recipientPrivateKey = document.getElementById("Importer_privatekey_name").value;
 
   var encrypted_message = await getencryptedmessage(theBLnumber, address_one, address_two);
+
   console.log("what is the val of encrypted_message");
   console.log(encrypted_message);
   var senderPublicKey_all = await getaccountpublickey(address_two);
@@ -94362,6 +94402,134 @@ async function executeonCarrierOption(operation_option, theBLnumber, address_one
 
 }
 
+/*2020/12/20 add*/
+/*This one for exporter*/
+async function show_all_the_BL_Importer_records(theBLnumber){
+
+    console.log("The BL_records");
+    var recipientPrivateKey = document.getElementById("Importer_privatekey_name").value;
+
+    console.log("- - - - - - -");
+    console.log("What is the val of recipientPrivateKey");
+    console.log(recipientPrivateKey);
+    console.log("- - - - - - -");
+
+    for(var index=0; index<6; index++){
+        
+        let BL_result = getencryptedmessagefromstack(theBLnumber, index);
+        BL_result.then( function(result){
+            
+            decrypt_BL_result(result,recipientPrivateKey);
+
+        });
+    }
+
+}
+
+async function show_all_the_BL_exporter_records(theBLnumber){
+
+    console.log("The BL_records");
+    var recipientPrivateKey = document.getElementById("exporter_privatekey_name").value;
+
+    console.log("- - - - - - -");
+    console.log("What is the val of recipientPrivateKey");
+    console.log(recipientPrivateKey);
+    console.log("- - - - - - -");
+
+    for(var index=8; index<13; index++){
+        
+
+        let BL_result = getencryptedmessagefromstack(theBLnumber, index);
+        BL_result.then( function(result){
+            
+            decrypt_BL_result(result,recipientPrivateKey);
+
+        });
+    }
+
+}
+
+
+async function show_all_the_BL_Carrier_records(theBLnumber){
+
+    console.log("The Carrier records");
+    var recipientPrivateKey = document.getElementById("carrier_privatekey_name").value;
+
+    for(var index=0; index<8; index++){
+
+        let BL_result = await getencryptedmessagefromstack(theBLnumber, index);
+        console.log("- - - - - - - - -");
+        console.log("Index:", index);
+        console.log( "Address_one: ", BL_result['address_one'] );
+        console.log( "Address_two: ", BL_result['address_two'] );
+        console.log("- - - - - - - - -");
+        /*BL_result.then( function(result){
+            
+            /*2020/12/23 add the address two since it may not able to decrypt*/
+            /*var address_two = result['address_two'];
+            var address_one = result['address_one'];
+            
+            /*console.log("- - - - - - - - -");
+            console.log("Index");
+            console.log(index)
+            console.log("Address_one");
+            console.log(address_one);
+            console.log("Address_two");
+            console.log(address_two);
+            console.log("- - - - - - - - -");
+            if( address_two == '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28'){
+                decrypt_BL_result(result,recipientPrivateKey);
+            }
+              /*get stuck in here*/
+              /*The address two should be carrier, so that it can decrypt
+        });*/
+    }
+
+}
+
+
+
+/*2020/12/20 add*/
+async function decrypt_BL_result( result, recipientPrivateKey){
+
+    console.log("66666_BL Resulttttttting_66666");
+    var encrypted_message = result['encrypted_message'];
+
+    var address_one = result['address_one'];
+    var address_two = result['address_two'];
+    var senderPublicKey_all = await getaccountpublickey(address_one);
+    var senderPublicKey = senderPublicKey_all.substring(2);
+    let decrypted_message = await decryptedmessagereturn( encrypted_message,recipientPrivateKey,senderPublicKey);
+    console.log("What is the val of decrypted_message");
+    console.log( decrypted_message );
+    /*$("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ result['address_one'] +'</td><td>' +
+    address_two + '</td><td>' + result['_message_registration_time'] + '</td><td>' + decrypted_message + '</td></tr>');*/
+}
+
+
+function get_cookie_BL_number(BLnumber_option){
+
+  var _BLnumber = BLnumber_option + "=";
+  /*console.log("Oh yeah, we are in the getting_cookie_BL_number_stage");*/
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+
+    var c = ca[i];/*此行的目的主要是將最外面的[]清掉*/
+    /*console.log("For loop for c");
+    console.log(c); -> 這行會顯示username=John 也就是將括號順利清掉了*/
+    while (c.charAt(0) == ' ') {
+
+      c = c.substring(1);
+      /*此行主要是看username=John前面是否有空格*/
+    }
+    if (c.indexOf( _BLnumber ) == 0) {
+      return c.substring( _BLnumber.length, c.length);
+    }
+
+  }
+}
+
 
 window.onload = function(){
 
@@ -94516,16 +94684,48 @@ window.onload = function(){
 
     });
 
-    $("#BLstatussubmit_Importer").click( function(){
+    $("#BLstatuscheck_Importer").click( function(){
         
         var theBLnumber = get_cookie_BL_number("BLnumber");
-        console.log("Before Importer queueing, what is the val of theBLnumber");
-        console.log(theBLnumber);
+
         setTimeout( function(){
-            query_from_Importer_and_decrypt(theBLnumber);
+            show_all_the_BL_Importer_records(theBLnumber);
+        },10);
+    });
+    /*2020/12/20 add*/
+    /*tomorrow starts*/
+    $("#BLstatuscheck_Exporter").click( function(){
+        
+        console.log("Oh yeah, we are doing the sort")
+        var theBLnumber = get_cookie_BL_number("BLnumber");
+
+        setTimeout( function(){
+             show_all_the_BL_exporter_records(theBLnumber);
+             /*let stack_length_promise = getStackLength();
+             stack_length_promise.then(function(result){
+                 console.log("What is the val of stack_length");
+                 console.log(result);
+             });*/
         },10);
 
     });
+
+    $("#BLstatuscheck_Carrier").click( function(){
+        
+        console.log("Oh yeah, we are doing the sort")
+        var theBLnumber = get_cookie_BL_number("BLnumber");
+
+        setTimeout( function(){
+             show_all_the_BL_Carrier_records(theBLnumber);
+             /*let stack_length_promise = getStackLength();
+             stack_length_promise.then(function(result){
+                 console.log("What is the val of stack_length");
+                 console.log(result);
+             });*/
+        },10);
+
+    });
+
 };
 
 

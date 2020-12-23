@@ -645,10 +645,10 @@
     <div id="sectionA" class="tab-pane fade">
 
       <form role="form">
-        <div class="panel panel-success margin-top-1">
+        <div class="panel panel-default margin-top-1">
             <div class="panel-heading">
 
-              <label for = "BLTransferstatus">提單移轉狀態查詢</h3>
+              <label for = "BLTransferstatus">提單移轉狀態查詢/操作</h3>
             </div>
 
             <div class="panel-body">
@@ -665,6 +665,7 @@
                         </select>
                     <label for="select">選項:</label>
                         <select name="account_two_operation_Importer_unit" id="account_two_operation_Importer_unit">
+                           <option value></option>
                            <option value="建立交易">建立交易</option>
                            <option value="提示提單">提示提單</option>
                            <option value="提貨">提貨</option>
@@ -684,16 +685,34 @@
 
                    </div>
                    <div class="form-box1-03">
-                        <label id="BLtransferstate_Importer" for="name">提單移轉狀態:</label>
+                        <label id="BLtransferstate_Importer" for="name">目前提單移轉狀態:</label>
                    </div>
                  </div>
               </div>
+            </div>   
+        </div>
+        <div class="panel panel-default margin-top-1">
+
+            <div class="panel-heading">
+              <label for = "BLRecords">提單移轉紀錄查詢</label>
+            </div>
+
+            <div class="panel-body">
+                <table id="Bill_of_ladings_record_table" class="table table-striped">
+                  <thread>
+                     <tr>
+
+                       <th>單位一</th>
+                       <th>單位二</th>
+                       <th>提單時間</th>
+                       <th>提單狀態</th>
+                     </tr>
+                  </thread>
+                </table>
             </div>
         </div>
       </form>
     </div>
-
-    
   </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

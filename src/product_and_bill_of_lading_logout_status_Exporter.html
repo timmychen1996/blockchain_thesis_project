@@ -627,10 +627,10 @@
     <div id="sectionA" class="tab-pane fade">
 
       <form role="form">
-        <div class="panel panel-success margin-top-1">
+        <div class="panel panel-default margin-top-1">
             <div class="panel-heading">
 
-              <label for = "BLTransferstatus">提單移轉狀態查詢</h3>
+              <label for = "BLTransferstatus">提單移轉狀態查詢/操作</h3>
             </div>
 
             <div class="panel-body">
@@ -649,6 +649,7 @@
 
                     <label for="select">選項:</label>
                         <select name="account_two_operation_exporter_unit" id="account_two_operation_exporter_unit">
+                           <option></option>
                            <option value="接收交易">接收交易</option>
                            <option value="洽訂艙位">洽訂艙位</option>
                            <option value="裝船">裝船</option>
@@ -665,6 +666,7 @@
                             </select>
                         <label for="name">輸入私鑰:<input type="text" id="exporter_privatekey_name" placeholder="私鑰名稱"></label>
                         <input type="button" id= "BLstatussubmit_exporter" value="查詢">
+                        <input type="button" id= "BLstatuscheck_Exporter" value="檢查">
                    </div>
                    <div class="form-box1-03">
                         <label id="BLtransferstate_Exporter" for="name">提單移轉狀態:</label>
@@ -673,9 +675,28 @@
               </div>
             </div>
         </div>
+        <div class="panel panel-default margin-top-1">
+
+            <div class="panel-heading">
+              <label for = "BLRecords">提單移轉紀錄查詢</label>
+            </div>
+
+            <div class="panel-body">
+                <table id="Bill_of_ladings_record_table" class="table table-striped">
+                  <thread>
+                     <tr>
+
+                       <th>單位一</th>
+                       <th>單位二</th>
+                       <th>提單時間</th>
+                       <th>提單狀態</th>
+                     </tr>
+                  </thread>
+                </table>
+            </div>
+        </div>
       </form>
     </div>
-
   </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

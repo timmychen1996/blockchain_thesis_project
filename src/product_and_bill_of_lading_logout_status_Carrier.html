@@ -627,10 +627,10 @@
     <div id="sectionA" class="tab-pane fade">
 
       <form role="form">
-        <div class="panel panel-success margin-top-1">
+        <div class="panel panel-default margin-top-1">
             <div class="panel-heading">
 
-              <label for = "BLTransferstatus">提單移轉狀態查詢</h3>
+              <label for = "BLTransferstatus">提單移轉狀態查詢/操作</label>
             </div>
 
             <div class="panel-body">
@@ -647,6 +647,7 @@
                         </select>
                     <label for="select">選項:</label>
                         <select name="account_two_operation_carrier_unit" id="account_two_operation_carrier_unit">
+                           <option></option>
                            <option value="交付提單">交付提單</option>
                            <option value="發行小提單">發行小提單</option>
                         </select>
@@ -661,6 +662,7 @@
                             </select>
                         <label for="name">輸入私鑰:<input type="text" id="carrier_privatekey_name" placeholder="私鑰名稱"></label>
                         <input type="button" id= "BLstatussubmit_carrier" value="查詢">
+                        <input type="button" id= "BLstatuscheck_Carrier" value="檢查">
                    </div>
                    <div class="form-box1-03">
                         <label id="BLtransferstate_Carrier" for="name">提單移轉狀態:</label>
@@ -668,19 +670,27 @@
                  </div>
               </div>
             </div>
-          </div>
-        <div class="panel-body">
-            <table id="Bill_of_ladings_table" class="table table-striped">
-              <thread>
-                 <tr>
-                   <th>單位一</th>
-                   <th>單位二</th>
-                   <th></th>
-                 </tr>
-              </thread>
-            </table>
-        </div>        
         </div>
+        <div class="panel panel-default margin-top-1">
+
+            <div class="panel-heading">
+              <label for = "BLRecords">提單移轉紀錄查詢</label>
+            </div>
+
+            <div class="panel-body">
+                <table id="Bill_of_ladings_record_table" class="table table-striped">
+                  <thread>
+                     <tr>
+
+                       <th>單位一</th>
+                       <th>單位二</th>
+                       <th>提單時間</th>
+                       <th>提單狀態</th>
+                     </tr>
+                  </thread>
+                </table>
+            </div> 
+        </div>        
       </form>
     </div>
   </div>
