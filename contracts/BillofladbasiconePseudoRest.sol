@@ -14,7 +14,7 @@ contract BillofladbasiconePseudoRest{
     }
     
     /*2020/12/18 changes*/
-    function setBillofLadingone(uint theBLnumber,uint theTime, string memory Importer,
+    function setBillofLadingone(uint theBLnumber,string memory theTime, string memory Importer,
     string memory Exporter , string memory notifyparty,
     string memory pre_carriage_by,string memory place_of_receipt,
     string memory ocean_vessel_voy_no) public {
@@ -27,6 +27,7 @@ contract BillofladbasiconePseudoRest{
         Billofladbasicone.setPreCarriageBy(billofladingsone[theBLnumber],pre_carriage_by);
         Billofladbasicone.setPlaceOfReceipt(billofladingsone[theBLnumber],place_of_receipt);
         Billofladbasicone.setOceanVesselVoyNo(billofladingsone[theBLnumber],ocean_vessel_voy_no);
+        
         
     }
     
@@ -107,5 +108,3 @@ contract BillofladbasiconePseudoRest{
     }
 
 }
-
-

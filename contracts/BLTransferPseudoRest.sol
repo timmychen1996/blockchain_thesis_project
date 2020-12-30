@@ -4,7 +4,6 @@ import './AccountKeyMessagePseudoRest.sol';
 
 contract BLTransferPseudoRest{
     
-    
     /*struct myStruct {
         uint someNumber;
         BLstate
@@ -136,7 +135,7 @@ contract BLTransferPseudoRest{
         return BL.length;
     }
     
-    function setBL(uint256 theBLnumber, uint256 thetime) public {
+    function setBL(uint256 theBLnumber, string memory thetime) public {
         
         AccountKeyMessageInstance.setEncrypt( theBLnumber, thetime);
         BL.length++;
@@ -160,5 +159,6 @@ contract BLTransferPseudoRest{
     function getBLlength() public view returns(uint256){
         return BL.length;
     }
-    
+     
 }
+

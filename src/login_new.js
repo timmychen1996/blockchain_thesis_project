@@ -92023,6 +92023,153 @@ var contractABI_user_login_register = [
 
 var contractABI_account_key_message =[
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      },
+      {
+        "name": "_key",
+        "type": "string"
+      }
+    ],
+    "name": "setAccountKey",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_given_public_key",
+        "type": "string"
+      }
+    ],
+    "name": "setCookiePublickey",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      }
+    ],
+    "name": "setEncrypt",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      },
+      {
+        "name": "thetime",
+        "type": "string"
+      },
+      {
+        "name": "encrypted_message",
+        "type": "string"
+      }
+    ],
+    "name": "setEncryptedMessage",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encrypt",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encrypt_message_list",
+    "outputs": [
+      {
+        "name": "BLmapping_id",
+        "type": "uint256"
+      },
+      {
+        "name": "BL_registration_time",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Encryptmapping_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -92035,6 +92182,85 @@ var contractABI_account_key_message =[
       {
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_career",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountCareer",
+    "outputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "string"
+      }
+    ],
+    "name": "getAccountKey",
+    "outputs": [
+      {
+        "name": "_key",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getCookiePublickey",
+    "outputs": [
+      {
+        "name": "_cookie_public_key",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theBLnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "address_one",
+        "type": "address"
+      },
+      {
+        "name": "address_two",
+        "type": "address"
+      }
+    ],
+    "name": "getEncryptedMessage",
+    "outputs": [
+      {
+        "name": "encrypted_message",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -92077,21 +92303,22 @@ var contractABI_account_key_message =[
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
     "inputs": [
       {
         "name": "theBLnumber",
         "type": "uint256"
-      },
-      {
-        "name": "thetime",
-        "type": "string"
       }
     ],
-    "name": "setEncrypt",
-    "outputs": [],
+    "name": "getEncryptMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "payable": false,
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -92115,51 +92342,6 @@ var contractABI_account_key_message =[
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      }
-    ],
-    "name": "getEncryptedMessage",
-    "outputs": [
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      },
-      {
-        "name": "_key",
-        "type": "string"
-      }
-    ],
-    "name": "setAccountKey",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [],
     "name": "getStackLength",
     "outputs": [
@@ -92171,168 +92353,6 @@ var contractABI_account_key_message =[
     "payable": false,
     "stateMutability": "view",
     "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      }
-    ],
-    "name": "getEncryptMappingIndex",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountKey",
-    "outputs": [
-      {
-        "name": "_key",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_career",
-        "type": "string"
-      }
-    ],
-    "name": "getAccountCareer",
-    "outputs": [
-      {
-        "name": "_account",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theBLnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "address_one",
-        "type": "address"
-      },
-      {
-        "name": "address_two",
-        "type": "address"
-      },
-      {
-        "name": "thetime",
-        "type": "string"
-      },
-      {
-        "name": "encrypted_message",
-        "type": "string"
-      }
-    ],
-    "name": "setEncryptedMessage",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encrypt",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encrypt_message_list",
-    "outputs": [
-      {
-        "name": "BLmapping_id",
-        "type": "uint256"
-      },
-      {
-        "name": "from_address",
-        "type": "address"
-      },
-      {
-        "name": "to_address",
-        "type": "address"
-      },
-      {
-        "name": "_message_registration_time",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "Encryptmapping_index",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
   }
 ];
 
@@ -92343,20 +92363,22 @@ qrcode = require('qrcode');
 ethers = require('ethers');
 InputDataDecoder = require('ethereum-input-data-decoder');
 
-var contractAddress_user_login_register = '0x615b01B3b35920e104F5710208e847E0699EB53f';
-var contractAddress_account_key = '0xc04C857d1c3D67498C41A84A473e201E8c30B2A0';
-
+var contractAddress_user_login_register = '0xA5Cf78C820077A13be50A4BE2D7e5fFB5784AA04';
+var contractAddress_account_key = '0x23dF6fCA05ba772f210Da3853F6859A005d3b2BD';
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
-
 
 var UserPseudoRest = new web3.eth.Contract( contractABI_user_login_register, contractAddress_user_login_register );
 var AccountPseudoRest = new web3.eth.Contract( contractABI_account_key_message, contractAddress_account_key );
 /*var Message = MessagePseudoRest.at(contractAddress);*/
 
 var defaultGas = 900000;
-/*2020/10/26 add*/
-/*we don't need the global_secret now*/
-/*var global_secret = generateSecret();*/
+
+/*2020/12/25 add*/
+/*Maybe this one can not be, we will add the other one*/
+var  exporter_first_address_used = false;
+var importer_first_address_used = false;
+var carrier_first_address_used = false;
+
 
 function registerUserInfo( user_account, user_password, user_role_option, user_address){
 
@@ -92400,6 +92422,44 @@ async function setAccountwithKey(user_address, pub_key){
   });
 }
 
+/*2020/12/26 add*/
+async function setCookiePublickey(_given_public_key){
+
+  return AccountPseudoRest.methods.setCookiePublickey(_given_public_key).send(
+  {
+    from: '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b',
+    gas: defaultGas
+  }).then( function(error,result){
+
+      if(result){
+        console.log("result %o",result);
+      }
+      else{
+        console.log(error);
+      }
+  });
+
+}
+
+/*2020/12/28*/
+function getCookiePublickey(){
+
+  return AccountPseudoRest.methods.getCookiePublickey().call().then( function(cookie_key){
+      return cookie_key; 
+  });
+
+}
+
+
+/*2020/12/26 add*/
+function getaccountpublickey(choosed_account){
+
+  return AccountPseudoRest.methods.getAccountKey(choosed_account).call().then( function(user_key){
+      return user_key; 
+  });
+
+}
+
 
 
 async function getloginUserInfo( user_login_account ){
@@ -92414,87 +92474,90 @@ async function getloginUserInfo( user_login_account ){
 /*If we already had the user_address from AccountPseudoRest,
 then we can use generateKeyPair to get the key from the user_address*/
 /*Then we can also use AccountPseudoRest to set the account with corresponding key*/
+
+/*2020/12/25 add*/
+
 async function addUserinfo(result){
 
     if(result){
+
         var user_account = $("#accountregisterA").val();
         var user_password = $("#passwordregisterA").val();
-        var user_role_option = $("#user_career_register option:selected").text();
-        let user_address = await user_role_to_ganache_account(user_role_option);
-        console.log("We_are_in_the_add_user_info");
-        console.log("What_is_the_val_of_user_address");
-        console.log(user_address);
+        var user_role_option = $("#user_career_register option:selected").text(); 
+        /*2020/12/25 add*/
+        if( user_role_option == 'Exporter' ){
+
+            console.log("What is the val of exporter_first_address_used");
+            console.log(exporter_first_address_used);
+
+            if( exporter_first_address_used ){
+
+                 var user_address = '0x3cF2DEdffC74ab8776f61C2d7F261c121c16F45c';
+                 console.log("Yep we get the second user_address");
+
+            }
+            else{
+
+                var user_address = await user_role_to_ganache_account(user_role_option);
+                console.log("The first exporter user_address");
+                console.log( user_address );
+                /*2020/12/28 add smart contract*/
+                exporter_first_address_used = true;
+
+            }
+
+        }
+
+        if( user_role_option == 'Importer' ){
+            
+            if( importer_first_address_used ){
+                 
+                var user_address = '0x9eb378EFfa2bE988B96431B421bEd2F859006A94';
+                console.log("Yep we get the second Importer user_address");
+
+            }
+            else{
+
+                var user_address = await user_role_to_ganache_account(user_role_option);
+                console.log("The first importer user_address");
+                console.log( user_address );
+                importer_first_address_used = true;
+            }
+
+        }
+
+        if( user_role_option == 'Carrier'){
+        
+            if( carrier_first_address_used ){
+                 
+                 var user_address = '0x87919efD1fbBEC204aA429fab906C5AF0196E795';
+                 console.log("Yep we get the second carrier user_address");
+            }
+            else{
+
+                var user_address = await user_role_to_ganache_account(user_role_option);
+                console.log("The first carrier user_address");
+                console.log( user_address );
+                carrier_first_address_used = true;
+            }
+
+        }
+
         let pub_key = await generateKeyPair(user_address);
         let account_with_key = await setAccountwithKey(user_address, pub_key);
         let user_registered_info = await registerUserInfo( user_account, user_password, user_role_option, user_address);
-
+        console.log("After")
+        console.log("The val of user_address");
+        console.log( user_address );
+        console.log("The val of pub_key");
+        console.log( pub_key );
         console.log("OK_we_finish_adding_the_user_role_option");
-        console.log( user_role_option );
+        console.log( user_role_option );        
         return pub_key;
+
     }
 
 }
-
-
-/*2020/10/26 add generateSecret*/
-/*目前不需要*/
-/*function generateSecret(){
-
-    var digits = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+';
-    var qrCodeApi = 'https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=';
-    var otpLength = 12;
-    var secret = '';
-    for(let i=1; i<=otpLength; i++){
-
-      var index = Math.floor(Math.random()*(digits.length));
-      secret = secret + digits[index];
-    }
-    console.log("Secret from generateSecret");
-    console.log(secret);
-    return secret;
-}*/
-
-/*2020/10/22 add*/
-
-/*async function generateQRcode(){
-
-    var qrCodeApi = 'https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=';
-    var user_login_account = $("#accountloginA").val();
-    let user_login_info = await getloginUserInfo( user_login_account );
-    var secret = user_login_info["user_secret"];
-
-    const user = 'vincentchen1025@gmail.com';
-    const service = 'gmail';
-    var token = otplib.authenticator.generate(secret);
-    console.log("Secret val");
-    console.log(secret);
-    console.log("Token val");
-    console.log(token);
-    var otpauth = otplib.authenticator.keyuri(
-
-        encodeURIComponent(user),
-        encodeURIComponent(service),
-        secret
-    );
-    /*2020/10/26 write*/
-    /*const promise = qrcode.toDataURL(otpauth).then(res =>{ console.log(res.substr(0,25)) });*/
-    /*var url = qrCodeApi + encodeURIComponent(otpauth);
-    console.log("what is the val of url");
-    console.log(url);
-    $('#qrcode').attr('src', url);
-    /*console.log("are_you_ok");
-    $('#qrcode').attr('src', qrcode_result);*/
-    /*$('#qrcode').attr('src', qrcode_result);*/
-    /*try{
-      const isValid = otplib.authenticator.check(token, otp);
-      console.log("What is the val of isValid");
-      console.log(isValid);
-    }catch(err){
-      console.log("Oops, ther is an error now");
-      console.log(err);
-    }
-
-}*/
 
 
 /*2020/6/4號加的,因為是偵測PasswordWrongn所以若是
@@ -92538,47 +92601,51 @@ async function getloginUserInfo( user_login_account ){
 
 }
 
-
-
 /*2020/06/16 確定可以根據職業而印出wowwwww或是Yeaaaaa*/
 async function getloginUserInfoafteradd(){
 
     var user_login_account = $("#accountloginA").val();
-    console.log("Gotcha the user_login_account");
-    console.log( user_login_account );
     let user_login_info = await getloginUserInfo( user_login_account );
     /*showUserinfo( user_login_info );*/
     var show_user_role_option = user_login_info["user_role_option"];
     var show_user_password = user_login_info["user_password"];
     var show_user_address = user_login_info["user_address"];
-    console.log("Gotcha the user_role_option");
-    console.log( show_user_role_option );
-    console.log("Gotcha the user_password_option");
-    console.log( show_user_password );
-    console.log("Gotcha the user_address_option");
-    console.log( show_user_address );
+
+    /*2020/12/26*/
+    /*Here we need the pub_key in order to put it into the variable in the smart contract*/ 
+    var pub_key_all = await getaccountpublickey(show_user_address);
+    var pub_key = pub_key_all.substring(2);
     /*2020/11/27 add*/
     if( show_user_role_option == 'Exporter' ){
 
           set_cookie("EXP");
+          /*2020/12/28 add*/
+          setCookiePublickey(pub_key);
           window.location.href = './product_and_bill_of_lading_logout_all_Exporter.html';
           console.log("Successful redirect into product_and_bill_of_lading_logout_all_Exporter.html");
+
     }
+
 
     if( show_user_role_option == 'Importer'){
 
           set_cookie("IMP");
+          /*2020/12/28 add*/
+          setCookiePublickey(pub_key);
           window.location.href = './product_and_bill_of_lading_logout_all_Importer.html';
           console.log("Successful redirect into product_and_bill_of_lading_logout_all_Importer.html");
+
     }
 
     if( show_user_role_option == 'Carrier'){
 
           set_cookie("CAR");
+          /*2020/12/28 add*/
+          setCookiePublickey(pub_key);
           window.location.href = './product_and_bill_of_lading_logout_all_Carrier.html';
           console.log("Successful redirect into product_and_bill_of_lading_logout_all_Carrier.html");
     }
-    
+
     /*if( show_user_role_option == 'Shipper' || show_user_role_option == 'Forwarder' || show_user_role_option == 'Carrier'){
           
           /*document.cookie = "role=SFC; expires=Thu, 18 June 2020 07:28:00 UTC; path=/Users/timothy/eth_todo_list_easy/src/login.html";*/
@@ -92614,6 +92681,14 @@ function checkloginUser() {
 
 }
 
+/*2020/12/27 changes, but we do not need this one now*/
+/*function getCookie(){
+
+  let split_document_cookie = document.cookie.split('=');
+  var parsed_document_cookie = JSON.parse(split_document_cookie[0]);
+  return parsed_document_cookie;
+}*/
+
 /*2020/06/16 確定可以submit cookie_name 給網站*/
 function getCookie( role_option ){
 
@@ -92645,20 +92720,31 @@ function getCookie( role_option ){
 }
 
 
-function set_cookie(role_val) {
+
+
+
+
+
+/*2020/12/26 changes*/
+/*Not only do the role option, we also need the public key option*/
+/*And we try to extend the time to three minutes*/
+function set_cookie( role_val ) {
 
   const time_now = Date.now();
   const ten_minutes_time_now = time_now + 10*60*1000;
-
+  
   var current_time = new Date( time_now );
   var ten_current_time = new Date( ten_minutes_time_now );
   console.log("Current Time");
   console.log( current_time);
   console.log("Ten Current Time");
-  console.log( ten_current_time);
-  var expires = "expires="+ ten_current_time.toUTCString();
-  document.cookie =  "role=" + role_val + ";" + expires;
+  console.log( ten_current_time );
 
+  var expires = "expires="+ ten_current_time.toUTCString();
+  /*2020/12/27 below is one of the option, if the cookie is not limited to one key-value pair*/
+  /*document.cookie = JSON.stringify({publickey: pub_key, role: role_val});*/
+  document.cookie = "role=" + role_val + "; " + expires;
+  
 }
 
 /*2020/6/18 當logout的時候,cookie的值就要設為unset,如此就不會再次redirect*/
@@ -92672,10 +92758,6 @@ async function check_cookie(){
   var current_time = new Date( time_now );
   /*var ten_minutes_later = new Date( ten_minutes_later_time );*/
   var user_role_option = getCookie("role");
-  console.log("Hey I got you");
-  console.log( user_role_option );
-  console.log("Current Time");
-  console.log( current_time.toUTCString());
   /*console.log("Ten minutes later");
   console.log( ten_minutes_later.toUTCString());*/
 
@@ -92716,26 +92798,42 @@ async function generateKeyPair( user_address ){
     const provider = new ethers.providers.JsonRpcProvider('http://localhost:7545');
     /*provider.getSigner(1) refers to account 1 in ganache console
     provider.getSigner(2) refers to account 2 in ganache console*/
+    /*2020/12/26 editted, now we need to consider other addresses*/ 
+    /*This one refers to exporter one*/
     if( user_address == "0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b" ){
         var get_signer_index = 0;
     }
 
+    /*This one refers to exporter two*/
+    if( user_address == "0x3cF2DEdffC74ab8776f61C2d7F261c121c16F45c" ){
+        var get_signer_index = 2;
+    }
+
+    /*This one refers to importer one*/
     if( user_address == "0x3C95107cAd460D3989F2dB09606BB436c2f47482" ){
         var get_signer_index = 1;
     }
 
+    /*This one refers to importer two*/
+    if( user_address == "0x9eb378EFfa2bE988B96431B421bEd2F859006A94"){
+        var get_signer_index = 3;
+    }
+
+    /*This one refers to carrier one*/
     if( user_address == "0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28" ){
         var get_signer_index = 4;
     }
+
+    if( user_address == "0x87919efD1fbBEC204aA429fab906C5AF0196E795") {
+        var get_signer_index = 5;
+    }
+
+
     const signer = provider.getSigner(get_signer_index);
     const ethAddress = await signer.getAddress();
     const hash = await ethers.utils.keccak256( ethAddress );
     const sig = await signer.signMessage(ethers.utils.arrayify(hash));
-    console.log("What is the user-address");
-    console.log( ethAddress );
     const pubKey = ethers.utils.recoverPublicKey(ethers.utils.arrayify(ethers.utils.hashMessage(ethers.utils.arrayify(hash))), sig);
-    console.log("What is the val of pubKey");
-    console.log(pubKey);
     return pubKey;
     /*let address = ethers.utils.computeAddress(pubKey);
     console.log("The recovering address is");
@@ -92805,9 +92903,7 @@ async function getTransactionblock(){
 
 window.onload = function() {
 
-    console.log("are_you_ok");
     check_cookie();
-
     $("#okBtnRegisterA").click( function(event){
 
 
@@ -92827,7 +92923,7 @@ window.onload = function() {
 
                     addUserinfo(result).then( function(result){
                         alert("如下為您的公鑰:"+ result);
-                        window.location.href = './login.html';
+                        /*window.location.href = './login.html';*/
                     });
 
                 })
@@ -92867,29 +92963,6 @@ window.onload = function() {
           })
 
       },10);
-      /*check= checkloginUser();
-      console.log("---------");
-      console.log( check );*/
-      /*if( check ){
-          setTimeout(function(){
-
-              add_user_promise = suretoadd();
-              add_user_promise.then( function(result){
-
-                  getloginUserInfoafteradd(result).then(function(result){
-                      return;
-                  });
-              })
-              .catch(function(error){
-                  console.log( error.message );
-              })
-
-          },10); 
-      }
-      else{
-          alert("此帳號尚未存在～");
-      }*/
-
     });
 
 

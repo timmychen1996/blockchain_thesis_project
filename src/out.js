@@ -61639,11 +61639,11 @@ var contractABI_BLTransfer =[
 
 Web3 = require('web3');
 
-var contractAddress_product = '0x57EF7ba38a4F0E45f844A09566D4b048287509ca';
-var contractAddress_letter_of_credit = '0x4E6eD9af64e7A0b31eAFd9f96dB21C69cBc3D076';
-var contractAddress_route = '0x58Ba991Fe89e21A83CfB1631234329A7943B3B30';
-var contractAddress_BL_transfer = '0x525245f67Bd85BE93ABeC134c5b65420b9a4a538'; 
-var contractAddress_bill_of_ladbasic = '0x52b6491e3eB93A6bCde24f2FDa17eec105Fd3258';
+var contractAddress_product = '0xEe54eEfC86D835DD187cBb6e6d898BB95e52923B';
+var contractAddress_letter_of_credit = '0x62E41264c9b16c70789feAFa80D779e0B6dF1199';
+var contractAddress_route = '0xce9882a7259970Cb0dD17FA4B4e55367ee18D3f4';
+var contractAddress_BL_transfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C'; 
+var contractAddress_bill_of_ladbasic = '0x01BB5B66bd040E57495d3526670C757b600665fc';
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -63092,12 +63092,13 @@ function BillofLadingMissingCheck(){
 
 async function addUserinfo(){
 
-    var user_name = $("#nameregisterA").val();
-    var user_email_address = $("#emailregisterA").val();
-    var user_password = $("#passwordregisterA").val();
-    let user_registered_info = await setUserInfo( user_name, user_email_address, user_password);   
-    console.log("OK_User");
-    console.log(user_registered_info);
+     var user_name = $("#nameregisterA").val();
+     var user_email_address = $("#emailregisterA").val();
+     var user_password = $("#passwordregisterA").val();
+     let user_registered_info = await setUserInfo( user_name, user_email_address, user_password);
+   
+     console.log("OK_User");
+     console.log(user_registered_info);
 
 }
 
@@ -63174,8 +63175,7 @@ async function show_recent_bill_of_ladings(){
     console.log(number_of_bol);
     // Append BoL to the table
     /*2020/12/8 add*/
-    /*var cookie_get = getCookie();*/
-    var user_role_option = getCookie("role");
+    var user_role_option = getCookie("role"); 
     for(index=0; index<number_of_bol; index++){
 
         var BL_number = await getBLMappingId(index);
@@ -63186,7 +63186,7 @@ async function show_recent_bill_of_ladings(){
         console.log( index);
         var bill_of_lading_info_day = await getbillofladingday(BL_number);
         /*2020/12/12 add*/
-        var  user_role_option = getCookie("role");
+        var user_role_option = getCookie("role");
         if ( user_role_option == "IMP"){
 
           console.log("Oh yes we get the IMPppping!!!!!!!");
@@ -63237,7 +63237,7 @@ async function show_recent_bill_of_ladings(){
 /*2020/12/14 add*/
 async function bill_of_ladings_number_link(result){
 
-  if(result){
+  if( result){
     
     console.log("are_you_kkkkkk");
     var table = document.getElementById("Bill_of_ladings_table");
@@ -63270,7 +63270,6 @@ async function show_bill_of_ladings_number_and_link(){
   show_recent_finish_promise.then( function(result){
       bill_of_ladings_number_link(result);
   });
-
 }
 
 async function getUserinfoafteradd(){
@@ -63323,23 +63322,84 @@ function get_cookie_BL_number(BLnumber_option){
   }
 }
 
+/*2020/12/25 because the role of the account may be more than one option, 
+eg: exporter_one, exporter_two, so we need to consider this*/
+function set_account_BL_number(BLnumber_val){
+
+  const time_now = Date.now();
+  const ten_minutes_time_now = time_now + 10*60*1000;
+
+  var current_time = new Date( time_now );
+  var ten_current_time = new Date( ten_minutes_time_now );
+  console.log("Current Time");
+  console.log( current_time);
+  console.log("Ten Current Time");
+  console.log( ten_current_time);
+  var expires = "expires="+ ten_current_time.toUTCString();
+  document.cookie =  "BLnumber=" + BLnumber_val + ";" + expires;
+
+}
 
 
-/*2020/06/16 確定可以從網站找到cookie_name*/
-/*2020/12/26 this one is new version*/
-/*function getCookie(){
 
-  let split_document_cookie = document.cookie.split('=');
-  var parsed_document_cookie = JSON.parse(split_document_cookie[0]);
-  return parsed_document_cookie;
+function set_cookie(role_val) {
 
-}*/
+  const time_now = Date.now();
+  const ten_minutes_time_now = time_now + 10*60*1000;
 
+  var current_time = new Date( time_now );
+  var ten_current_time = new Date( ten_minutes_time_now );
+  console.log("Current Time");
+  console.log( current_time);
+  console.log("Ten Current Time");
+  console.log( ten_current_time);
+  var expires = "expires="+ ten_current_time.toUTCString();
+  document.cookie =  "role=" + role_val + ";" + expires;
+
+}
 
 /*2020/06/16 確定可以從網站找到cookie_name*/
 function getCookie( role_option ){
 
-  var role = role_option + "=";
+  let split_document_cookie = document.cookie.split('=');
+  console.log("Split_document_cookieing")
+  console.log(split_document_cookie);
+  var parsed_document_cookie = JSON.parse(split_document_cookie[0]);
+  /*let parsed_document_cookie = JSON.parse(document.cookie);*/
+  console.log("Hey is the val of pub_key");
+  console.log( parsed_document_cookie.publickey  );
+  console.log("Hey is the val of role");
+  console.log( parsed_document_cookie.role);
+  /*var role = role_option + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+
+  /*console.log("The val of ca\n");
+  console.log(ca); -> 這行會顯示[“username=John]
+  console.log("The length of ca\n");
+  console.log(ca.length); -> 這行會顯示1 */
+
+  /*for(var i = 0; i <ca.length; i++) {
+
+    var c = ca[i];/*此行的目的主要是將最外面的[]清掉*/
+    /*console.log("For loop for c");
+    console.log(c); -> 這行會顯示username=John 也就是將括號順利清掉了
+    while (c.charAt(0) == ' ') {
+
+      c = c.substring(1);
+      此行主要是看username=John前面是否有空格
+    }
+    if (c.indexOf(role) == 0) {
+      return c.substring(role.length, c.length);
+    }
+
+  }*/
+
+}
+
+function getCookie_Pubkey( pub_key ){
+
+  var pub_key_string = pub_key + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
 
@@ -63358,61 +63418,28 @@ function getCookie( role_option ){
       c = c.substring(1);
       /*此行主要是看username=John前面是否有空格*/
     }
-    if (c.indexOf(role) == 0) {
-      return c.substring(role.length, c.length);
+    if (c.indexOf(pub_key_string) == 0) {
+      return c.substring(pub_key_string.length, c.length);
     }
 
   }
 
 }
 
-/*2020/12/26 add*/
-/*function set_cookie( role_val, pub_key ) {
-
-  const time_now = Date.now();
-  const three_minutes_time_now = time_now + 3*60*1000;
-  
-  var current_time = new Date( time_now );
-  var three_current_time = new Date( three_minutes_time_now );
-  console.log("Current Time");
-  console.log( current_time);
-  console.log("Twenty Current Time");
-  console.log( three_current_time );
-  console.log("Pub_keyiiiii");
-  console.log(pub_key);
-  var expires = "expires="+ twenty_current_time.toUTCString();
-
-  document.cookie = JSON.stringify({publickey: pub_key, role: role_val});
-}*/
-
-
-function set_cookie(role_val){
-
-    const time_now = Date.now();
-    const ten_minutes_time_now = time_now + 10*60*1000;
-
-    var current_time = new Date( time_now );
-    var ten_current_time = new Date( ten_minutes_time_now );
-    console.log("Current Time");
-    console.log( current_time);
-    console.log("Ten Current Time");
-    console.log( ten_current_time);
-    var expires = "expires="+ ten_current_time.toUTCString();
-    document.cookie =  "role=" + role_val + ";" + expires;
-
-}
-
-
-
 async function check_whether_login_or_not(){
 
-  var user_role_option = getCookie("role");
-  console.log("check_whether_login_or_not");
-  console.log( user_role_option );
-  if( user_role_option == "notset"){
+  /*var user_role_option = getCookie("role");*/
+  /*2020/12/26 not only check cookie from role, but also checks for pub_key*/
+  var user_pub_key = getCookie("role");
+  console.log("Role and Pub key");
+  console.log("Pub_Key");
+  console.log(user_pub_key);
+
+  /*if( user_role_option == "notset"){
     alert("請先登入");
     window.location.href = './login.html';
-  }
+  }*/
+
 
 }
 
@@ -63428,12 +63455,23 @@ async function check_cookie(){
   var current_time = new Date( time_now );
   /*var ten_minutes_later = new Date( ten_minutes_later_time );*/
   var user_role_option = getCookie("role");
-  console.log("The user_role");
+  console.log("Hey I got you");
   console.log( user_role_option );
   console.log("Current Time");
   console.log( current_time.toUTCString());
+  /*console.log("Ten minutes later");
+  console.log( ten_minutes_later.toUTCString());*/
 
-  if( user_role_option == "notset"){
+  if ( user_role_option == "SFC"){
+
+        window.location.href = './product_and_bill_of_lading_logout.html';
+  }
+  else if( user_role_option == "LC"){
+         
+        console.log("LC is good");
+        window.location.href = './product_logout.html';
+  }
+  else if( user_role_option == "notset"){
 
         console.log("No role now");
   }
@@ -63480,7 +63518,6 @@ $(window).load(function() {
       setTimeout(function(){
           getshippingorderafteradd();
         },5000);
-
     });
 
 
@@ -63690,7 +63727,6 @@ $(window).load(function() {
 
             console.log("已確定要登出");
             /*document.cookie = "role=notset; expires=Thu, 18 June 2020 08:20:00 UTC; path=/Users/timothy/eth_todo_list_easy/src/login.html";*/
-            /*Here we need to delete the cookie first, then we can set cookie again*/
             set_cookie("notset");
             window.location.href = './login.html';
         }
