@@ -326,6 +326,39 @@ var contractABI_bill_of_ladbasic = [
 var contractABI_product =[
   {
     "constant": true,
+    "inputs": [],
+    "name": "getProductlength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "product_mapping_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "theProductnumber",
@@ -414,6 +447,25 @@ var contractABI_product =[
       {
         "name": "update_product_day",
         "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProductMappingId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -1675,11 +1727,11 @@ var contractABI_BLTransfer =[
 
 Web3 = require('web3');
 
-var contractAddress_product = '0x57EF7ba38a4F0E45f844A09566D4b048287509ca';
-var contractAddress_letter_of_credit = '0x4E6eD9af64e7A0b31eAFd9f96dB21C69cBc3D076';
-var contractAddress_route = '0x58Ba991Fe89e21A83CfB1631234329A7943B3B30';
-var contractAddress_BL_transfer = '0x525245f67Bd85BE93ABeC134c5b65420b9a4a538'; 
-var contractAddress_bill_of_ladbasic = '0x52b6491e3eB93A6bCde24f2FDa17eec105Fd3258';
+var contractAddress_product = '0x4F9221F533a62Cd8e5562C7AfD509B630819Ab31';
+var contractAddress_letter_of_credit = '0x62E41264c9b16c70789feAFa80D779e0B6dF1199';
+var contractAddress_route = '0xce9882a7259970Cb0dD17FA4B4e55367ee18D3f4';
+var contractAddress_BL_transfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C'; 
+var contractAddress_bill_of_ladbasic = '0x01BB5B66bd040E57495d3526670C757b600665fc';
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -2797,7 +2849,7 @@ async function addProduct(result){
 
     console.log("Current Day");
     console.log(product_registered_day);
-
+    
     var product_registered_time = current_time.toTimeString();
     let product_one = await setProductone( product_id, product_name, company_name, dispatch_time, receive_time, dispatch_amount, receive_amount);
     let product_two = await setProducttwo( product_id, price, exporter, consignee, means_of_transport_and_route, incoterns, bill_of_lading);
@@ -3184,6 +3236,14 @@ function getBLMappingId(index){
   }); 
 }
 
+/*2020/1/13*/
+function getProductMappingId(index){
+
+  return ProductPseudoRest.methods.getProductMappingId(index).call().then( function(Product_number){
+      return Product_number;
+  });
+}
+
 /*2020/12/11*/
 function getBLlength(){
 
@@ -3191,6 +3251,15 @@ function getBLlength(){
       return BL_length; 
   });
 }
+
+/*2020/1/13*/
+function getProductlength(){
+
+  return ProductPseudoRest.methods.getProductlength().call().then( function(Product_length){
+      return Product_length; 
+  });
+}
+
 
 
 /*2020/12/2 add*/
@@ -3219,7 +3288,7 @@ async function show_recent_bill_of_ladings(){
         console.log("What is the val of BL_number");
         console.log( BL_number );
         console.log("The val of index");
-        console.log( index);
+        console.log( index );
         var bill_of_lading_info_day = await getbillofladingday(BL_number);
         /*2020/12/12 add*/
         var  user_role_option = getCookie("role");
@@ -3241,6 +3310,7 @@ async function show_recent_bill_of_ladings(){
 
           console.log("Oh yes we get the EXP!!!!!!!");
           if ( BL_number>0 ){
+
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+
             BL_number +'</td><td>' +
             bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Exporter.html">查詢/修改</a></td></tr>');
@@ -3265,9 +3335,90 @@ async function show_recent_bill_of_ladings(){
           }
 
         }
-
+    
     }
 }
+
+/*2020/1/12*/
+/*Here we need to add the getProductlength, getProductMappingId, and getProductday*/
+async function show_recent_products(){
+    
+    var index;
+    if ( $("#Products_table tbody").length == 0 ) {
+          
+        $("#Products_table").append("<tbody></tbody>");
+    }
+
+    var number_of_product = await getProductlength();
+    if( number_of_product < 0){
+        console.log("Registration for Product is failed");
+    }
+
+    console.log("What is the val of Product length");
+    console.log( number_of_product );
+    // Append BoL to the table
+    /*2020/12/8 add*/
+    /*var cookie_get = getCookie();*/
+    var user_role_option = getCookie("role");
+    for(index=0; index<number_of_product; index++){
+
+        var product_number = await getProductMappingId(index);
+
+        console.log("What is the val of Product_number");
+        console.log( product_number );
+        console.log("The val of index");
+        console.log( index );
+        var product_info_day = await getProductDay( product_number );
+        /*2020/12/12 add*/
+        var  user_role_option = getCookie("role");
+        if ( user_role_option == "IMP"){
+
+          console.log("Oh yes we get the product Impppping!!!!!!!");
+          if ( product_number >0 ){
+
+            /*2020/12/14 add*/
+            $("#Products_table tbody").append('<tr><td>'+ product_number +'</td><td>' +
+            product_info_day + '</td><td>尚未到貨</td></tr>');
+          }
+          if( index+1 == number_of_product ){
+            return true;
+          }
+
+        }
+
+        if( user_role_option == "EXP"){
+
+          console.log("Oh yes we get the product EXP!!!!!!!");
+          if ( product_number >0 ){
+            $("#Products_table tbody").append('<tr><td>'+
+            product_number +'</td><td>' +
+            product_info_day + '</td><td>尚未到貨</td></tr>');
+          }
+          if( index+1 == number_of_product ){
+            return true;
+          }
+
+        }
+
+        if( user_role_option == "CAR"){
+            
+          console.log("Oh yes we get the product CAR!!!!!!!");
+          if ( product_number>0 ){
+
+            $("#Products_table tbody").append('<tr><td>'+
+            product_number +'</td><td>' +
+            product_info_day + '</td><td>尚未到貨</td></tr>');
+          }
+          if( index+1 == number_of_product){
+            return true;
+          }
+
+        }
+
+    }
+
+}
+
 
 
 /*2020/12/14 add*/
@@ -3299,6 +3450,47 @@ async function bill_of_ladings_number_link(result){
   }
 }
 
+async function products_link(result){
+
+   if(result){
+    
+     console.log("are_you_kkkkkk");
+     var table = document.getElementById("Products_table");
+     var rows = table.getElementsByTagName("tr");
+     for (i = 1; i < rows.length; i++) {
+
+      var currentRow = table.rows[i];
+      var createClickHandler = function(row) {
+        return function() {
+          var cell = row.getElementsByTagName("td")[0];
+          console.log("What is the val of cellllllll");
+          console.log(cell);
+          var id = cell.innerHTML;
+          set_cookie_Product_number(id);
+        };
+      };
+      console.log("Man what the heck");
+      currentRow.onclick = createClickHandler(currentRow);
+    }
+  }  
+  else{
+    console.log("Show recent bill of ladings failed");
+  } 
+}
+
+
+/*1/12*/
+/*Here, we will use later*/
+/*async function products_number_link(result){
+
+  if(result){
+
+    console.log("product_okkk");
+    var 
+
+  }  
+}*/
+
 /*2020/12/14 add*/
 async function show_bill_of_ladings_number_and_link(){
 
@@ -3308,6 +3500,17 @@ async function show_bill_of_ladings_number_and_link(){
   });
 
 }
+
+/*2020/1/12*/
+async function show_products_number_and_link(){
+
+  var show_recent_finish_promise = show_recent_products();
+  show_recent_finish_promise.then( function(result){
+      products_link(result); 
+  });
+
+}
+
 
 async function getUserinfoafteradd(){
     
@@ -3322,7 +3525,7 @@ async function getUserinfoafteradd(){
 function set_cookie_BL_number(BLnumber_val){
 
   const time_now = Date.now();
-  const ten_minutes_time_now = time_now + 10*60*1000;
+  const twenty_minutes_time_now = time_now + 20*60*1000;
 
   var current_time = new Date( time_now );
   var ten_current_time = new Date( ten_minutes_time_now );
@@ -3334,6 +3537,8 @@ function set_cookie_BL_number(BLnumber_val){
   document.cookie =  "BLnumber=" + BLnumber_val + ";" + expires;
 
 }
+
+
 
 
 /*2020/12/15 add*/
@@ -3359,6 +3564,45 @@ function get_cookie_BL_number(BLnumber_option){
   }
 }
 
+
+/*2020/1/12 add*/
+function set_cookie_Product_number( Productnumber_val ){
+
+  const time_now = Date.now();
+  const twenty_minutes_time_now = time_now + 20*60*1000;
+
+  var current_time = new Date( time_now );
+  var twenty_current_time = new Date( twenty_minutes_time_now );
+  console.log("Current Time");
+  console.log( current_time);
+  console.log("Twenty Current Time");
+  console.log( twenty_current_time );
+  var expires = "expires="+ twenty_current_time.toUTCString();
+  document.cookie =  "Productnumber=" + Productnumber_val + ";" + expires;
+
+}
+
+/*2020/1/12 add*/
+function get_cookie_Product_number( Productnumber_option ){
+
+  var _Productnumber = Productnumber_option + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+
+    var c = ca[i];/*此行的目的主要是將最外面的[]清掉*/
+    /*console.log("For loop for c");
+    console.log(c); -> 這行會顯示username=John 也就是將括號順利清掉了*/
+    while (c.charAt(0) == ' ') {
+
+      c = c.substring(1);
+      /*此行主要是看username=John前面是否有空格*/
+    }
+    if (c.indexOf( _Productnumber ) == 0) {
+      return c.substring( _Productnumber.length, c.length);
+    }
+  }
+}
 
 
 /*2020/06/16 確定可以從網站找到cookie_name*/
@@ -3496,10 +3740,16 @@ $(window).load(function() {
 
     /*2020/6/18 如下為檢查當要進入product_logout或是product_bill_of_lading帳號是否存在*/
     check_whether_login_or_not();
+
     /*2020/12/8 add*/
     /*show_recent_bill_of_ladings();*/
     setTimeout(function(){
         show_bill_of_ladings_number_and_link();
+    },10);
+
+    /*2020/1/12 add*/
+    setTimeout(function(){
+        show_products_number_and_link();
     },10);
 
     $('#okBtnA').click( function(){
@@ -3722,7 +3972,7 @@ $(window).load(function() {
     https://stackoverflow.com/questions/27619604/constant-alert-when-i-click-in-li-element-using-jquery/27619674*/
     $("#product_bill_of_lading_logout ul li.active").click( function(){
 
-        if( confirm("您確定要登出嗎？") ){
+        if( confirm("您確定要登出出嗎嗎嗎？") ){
 
             console.log("已確定要登出");
             /*document.cookie = "role=notset; expires=Thu, 18 June 2020 08:20:00 UTC; path=/Users/timothy/eth_todo_list_easy/src/login.html";*/
@@ -3737,10 +3987,27 @@ $(window).load(function() {
 
     });
 
-    /*這邊在多加一個屬於product_logout.html*/
-    $("#product_logout ul li.active").click( function(){
+    /*2021/1/12 add*/
+    /*Here we still need to consider the other three roles from get_cookie*/ 
+    /*This one is for 主畫面*/
+    $("#product_logout_Exporter ul li.main-active").click( function(){
 
-        if( confirm("您確定要登出嗎？") ){
+            window.location.href = './product_and_bill_of_lading_logout_all_Exporter.html';      
+    });
+
+    /*2021/1/12 add*/
+    /*This one is for 主畫面*/
+    $("#bill_of_lading_logout_Exporter ul li.main-active").click( function(){
+
+            window.location.href = './product_and_bill_of_lading_logout_all_Exporter.html';      
+    });
+
+    /*2021/1/12 add*/
+    /*這邊在多加一個屬於product_logout.html*/
+    /*This one is for 登出*/
+    $("#product_logout_Exporter ul li.active").click( function(){
+
+        if( confirm("您確定要登出登出嗎？") ){
             
             console.log("已確定要登出");
             set_cookie("notset");
@@ -3753,6 +4020,72 @@ $(window).load(function() {
         }
 
     });
+
+    /*2021/1/12 add*/
+    /*這邊在多加一個屬於bill_of_lading_logout.html*/
+    /*This one is for 登出*/
+    $("#bill_of_lading_logout_Exporter ul li.active").click( function(){
+
+        if( confirm("您確定要登出登出嗎？") ){
+            
+            console.log("已確定要登出");
+            set_cookie("notset");
+            window.location.href = './login.html';
+
+        }
+        else{
+            console.log("停留在此頁");
+        }
+
+    });
+
+    /*2021/1/12 add*/
+    /*This one is for 主畫面*/
+    $("#product_logout_Importer ul li.main-active").click( function(){
+
+            window.location.href = './product_and_bill_of_lading_logout_all_Importer.html';      
+    });
+
+    /*2021/1/12 add*/
+    /*This one is for 主畫面*/
+    $("#bill_of_lading_logout_Importer ul li.main-active").click( function(){
+
+            window.location.href = './product_and_bill_of_lading_logout_all_Importer.html';      
+    });
+
+    /*2021/1/12 add*/
+    $("#product_logout_Importer ul li.active").click( function(){
+
+        if( confirm("您確定要登出登出嗎？") ){
+            
+            console.log("已確定要登出");
+            set_cookie("notset");
+            /*document.cookie = "role=notset; expires=Thu, 18 June 2020 08:20:00 UTC; path=/Users/timothy/eth_todo_list_easy/src/login.html";*/
+            window.location.href = './login.html';
+
+        }
+        else{
+            console.log("停留在此頁");
+        }
+
+    });
+    
+    /*2021/1/12 add*/
+    $("#bill_of_lading_logout_Importer ul li.active").click( function(){
+
+        if( confirm("您確定要登出登出嗎？") ){
+            
+            console.log("已確定要登出");
+            set_cookie("notset");
+            window.location.href = './login.html';
+
+        }
+        else{
+            console.log("停留在此頁");
+        }
+
+    });
+
 
 });
 

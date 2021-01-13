@@ -1,12 +1,10 @@
 pragma solidity >=0.4.22 <0.6.0;
 pragma experimental ABIEncoderV2;
-
 /*import './Supplier.sol';
 import './Transport.sol';
 import './Terminal.sol';
 import './Carrier.sol';*/
 import './Product.sol';
-
 
 contract ProductPseudoRest{
     
@@ -17,48 +15,27 @@ contract ProductPseudoRest{
     
     mapping(uint => Product.aProduct) private productone;
     mapping(uint => Product.ashippingorder) private shippingorderone;
-    
+    mapping (uint256 => uint256) public product_mapping_index;
     using Product for Product.aProduct;
     
     constructor() public {
         
     }
-    
-    /*function setSupplier(uint theProductnumber, string memory anSupplier) public{
-        Supplier.setName(suppliers[theProductnumber], anSupplier);
-    }
-    
-    function setTransport(uint theProductnumber, string memory anTransport) public{
-        Transport.setName(transports[theProductnumber], anTransport);
-    }
-    
-    function setTerminal(uint theProductnumber, string memory anDispatchTerminal, string memory anArriveTerminal) public{
-        Terminal.setDispatchTerminal(terminals[theProductnumber], anDispatchTerminal);
-        Terminal.setArriveTerminal(terminals[theProductnumber],anArriveTerminal);
-    }
-    
-    function setPort(uint theProductnumber, string memory anDispatchPort, string memory anArrivePort) public
-    {
-        Port.setDispatchPort(ports[theProductnumber], anDispatchPort);
-        Port.setArrivePort(ports[theProductnumber],anArrivePort);
-    }
-    
-    function setCarrier(uint theProductnumber, string memory ancarrier) public{
-        Carrier.setName(carriers[theProductnumber], ancarrier);
-    }*/
+    uint256 product_length = 0;
     
     function setProductone(uint theProductnumber,string memory product_name,
     string memory company_name, string memory dispatch_time,
     string memory receive_time, uint dispatch_amount, uint receive_amount) public {
         
+        product_length++;
+        product_mapping_index[ product_length-1 ] = theProductnumber;
+        
         Product.setProductId( productone[ theProductnumber ], theProductnumber );
         Product.setshippingorderProductId( shippingorderone[ theProductnumber ], theProductnumber );
-        
         Product.setProductName( productone[ theProductnumber ], product_name );
         Product.setCompanyName( productone[ theProductnumber ], company_name );
         Product.setDispatchTime( productone[ theProductnumber ], dispatch_time );
         Product.setReceiveTime ( productone[ theProductnumber ], receive_time );
-        
         Product.setDispatchAmount( productone[ theProductnumber ], dispatch_amount );
         Product.setReceiveAmount ( productone[ theProductnumber ], receive_amount );
         
@@ -170,6 +147,14 @@ contract ProductPseudoRest{
         
     }
     
+    function getProductlength() public view returns(uint256){
+        return product_length;
+    }
+    
+    function getProductMappingId(uint256 index) public view returns(uint256){
+        return product_mapping_index[index];
+    }
+    
     function updateProduct(uint theProductnumber, string memory receive_time, string memory dispatch_time,
     uint receive_amount, uint dispatch_amount, string memory dangerous_or_flammable_cargo, string memory product_status) public{
         
@@ -190,4 +175,7 @@ contract ProductPseudoRest{
         
         Product.setupdateProductTime( productone[ theProductnumber ], update_product_time);
     }
+    
 }
+
+

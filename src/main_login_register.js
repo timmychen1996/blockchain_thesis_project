@@ -427,8 +427,8 @@ qrcode = require('qrcode');
 ethers = require('ethers');
 InputDataDecoder = require('ethereum-input-data-decoder');
 
-var contractAddress_user_login_register = '0x17a60525c2BA6f80cE45F56f2CB25d907586799D';
-var contractAddress_account_key = '0xfa3Cb7Af2543b3Be2A5dF472B590e2f3947Ba469';
+var contractAddress_user_login_register = '0x88ebf5Db99f1c6B401055f7f6852cAE77D02CD6e';
+var contractAddress_account_key = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
 var UserPseudoRest = new web3.eth.Contract( contractABI_user_login_register, contractAddress_user_login_register );
@@ -783,10 +783,9 @@ function checkloginUser() {
 
   var user_account = $("#accountloginA").val();
   var user_password = $("#passwordloginA").val();
-  return UserPseudoRest.methods.checkloginUser( user_account, user_password).call().then( function(result){
+  return UserPseudoRest.methods.checkloginUser(user_account, user_password).call().then( function(result){
       return result;
   });
-
 }
 
 /*2020/12/27 changes, but we do not need this one now*/
@@ -839,7 +838,7 @@ function getCookie( role_option ){
 function set_cookie( role_val ) {
 
   const time_now = Date.now();
-  const ten_minutes_time_now = time_now + 10*60*1000;
+  const ten_minutes_time_now = time_now + 20*60*1000;
   
   var current_time = new Date( time_now );
   var ten_current_time = new Date( ten_minutes_time_now );
@@ -888,8 +887,7 @@ async function check_cookie(){
   else{
         console.log("很抱歉,請再執行一次～");
   }
-  
-  
+
 }
 
 async function delete_cookie(){

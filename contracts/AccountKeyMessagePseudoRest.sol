@@ -23,7 +23,6 @@ contract AccountKeyMessagePseudoRest{
         mapping(uint256 => address) to_address_queue;
         mapping(uint256 => string) _message_registration_time_queue;
         mapping(uint256 => string) _message_queue;
-        
     }
     
     constructor() public{
@@ -61,6 +60,7 @@ contract AccountKeyMessagePseudoRest{
         Encryptmessage_index[theBLnumber] = Encrypt_message_list.length-1;
         
     }
+
     
     function setEncryptedMessage(uint256 theBLnumber, address address_one, address address_two, string memory thetime, string memory encrypted_message) public {
         

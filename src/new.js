@@ -93430,9 +93430,9 @@ qrcode = require('qrcode');
 eth_rsa = require('ethereum-rsa');
 ethers = require('ethers');
 
-var contractAddress_LCtransfer = '0x8418b51550945E9308d556cAD8b58deE9e268a3e';
-var contractAddress_account_key_message = '0xfa3Cb7Af2543b3Be2A5dF472B590e2f3947Ba469';
-var contractAddress_BLtransfer = '0x525245f67Bd85BE93ABeC134c5b65420b9a4a538';
+var contractAddress_LCtransfer = '0xF4799B5d43bF682d9Fb70076C0a09B53c5B3C403';
+var contractAddress_account_key_message = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
+var contractAddress_BLtransfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C';
 
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
@@ -93723,6 +93723,10 @@ function getencryptedmessagefromstack(theBLnumber, queue_index){
 /*We put the time situation into the consideration*/
 function messageencrypted(theBLnumber, address_one, address_two, thetime, encrypted_message){
 
+  console.log("Oh yeah we are encrypting the message!");
+  console.log("What is the val of encrypted_message");
+  console.log(encrypted_message);
+
   return AccountPseudoRest.methods.setEncryptedMessage(theBLnumber, address_one, address_two, thetime, encrypted_message).send(
   {
     from: '0x3C95107cAd460D3989F2dB09606BB436c2f47482',
@@ -93923,7 +93927,11 @@ async function accept_from_Exporter_and_encrypt( theBLindex, address_one, addres
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
 
-  var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
+  /*2020/12/30 the senderPrivateKey is changed here*/
+  /*Instead of directly assigns is, we key in through the exporter_privatekey_name*/
+
+  var senderPrivateKey = document.getElementById("exporter_privatekey_name").value;
+
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
   /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
@@ -93935,7 +93943,7 @@ async function accept_from_Exporter_and_encrypt( theBLindex, address_one, addres
   console.log("- - - - - - - - - - - - - - - - -  - - -");
   console.log("Accepting from Exporter:");
   console.log("Encrypted_message_one:");
-  console.log(encrypted_message_one);
+  console.log( encrypted_message_one );
   console.log("- - - - - - - - - - - - - - - - -  - - -");
 
   let BL_number = await getBLMappingId(theBLindex);
@@ -93946,7 +93954,7 @@ async function accept_from_Exporter_and_encrypt( theBLindex, address_one, addres
 
   let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, accept_from_Exporter_time, encrypted_message_one);
   /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, accept_from_Exporter_time, encrypted_message_two);*/
-  
+
 }
 
 /*2020/12/12 editted*/
@@ -93959,7 +93967,9 @@ async function book_from_Exporter_and_encrypt( theBLindex, address_one, address_
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
 
-  var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
+  var senderPrivateKey = document.getElementById("exporter_privatekey_name").value;
+
+
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
   /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
@@ -93995,9 +94005,10 @@ async function loadonship_from_Exporter_and_encrypt( theBLindex, address_one, ad
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
 
-  var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
+  var senderPrivateKey = document.getElementById("exporter_privatekey_name").value;
+
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
   /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
@@ -94029,10 +94040,11 @@ async function shipnotification_from_Exporter_and_encrypt( theBLindex, address_o
 
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
-
-  var senderPrivateKey = '5f6ecd5b4a3cbd6826fd737fc2d5e933ca833f5990bd0bdbb218945a482f66f3';
+  
+  var senderPrivateKey = document.getElementById("exporter_privatekey_name").value;
+  
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
   /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
@@ -94066,9 +94078,9 @@ async function deliverBL_from_Carrier_and_encrypt( theBLindex, address_one, addr
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
 
-  var senderPrivateKey = '8507ddebae43d3c7cfe0a4c6fefde7c51d70974c1c84eeac5c59a6b545ea9c17';
+  var senderPrivateKey = document.getElementById("carrier_privatekey_name").value;
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
   /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
@@ -94102,9 +94114,9 @@ async function issueDO_from_Carrier_and_encrypt( theBLindex, address_one, addres
   let message_one = BL_transfer_state[ message_number_one ];
   let message_two = BL_transfer_state[ message_number_two ];
 
-  var senderPrivateKey = '8507ddebae43d3c7cfe0a4c6fefde7c51d70974c1c84eeac5c59a6b545ea9c17';
+  var senderPrivateKey = document.getElementById("carrier_privatekey_name").value;
   let recipientPublicKey_all_one = await getaccountpublickey(address_two);
-  let recipientPublicKey_all_two = await getaccountpublickey(address_three);
+  /*let recipientPublicKey_all_two = await getaccountpublickey(address_three);*/
 
   var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
   /*var recipientPublicKey_two = recipientPublicKey_all_two.substring(2);*/ 
@@ -94460,14 +94472,14 @@ async function executeonImporterOption(operation_option, theBLnumber, address_on
 }
 
 /*2020/11/14 Exporter's one still not sure yet, I will change tho*/
-async function executeonExporterOption(operation_option, theBLnumber, address_one, address_two, address_three ){
+async function executeonExporterOption(operation_option, theBLnumber, address_one, address_two, address_three){
 
   /*2020/12/10 add*/
-  var theBLindex = await getBLMappingIndex( theBLnumber );
+  var theBLindex = await getBLMappingIndex(theBLnumber);
   if( operation_option == "接收交易" ){
 
       console.log("Now we will accept the transaction");
-      accept_from_Exporter_and_encrypt( theBLindex, address_one, address_two, address_three);
+      accept_from_Exporter_and_encrypt(theBLindex, address_one, address_two, address_three);
   }
 
   if( operation_option == "洽訂艙位"  ){
@@ -94516,15 +94528,17 @@ async function executeonCarrierOption(operation_option, theBLnumber, address_one
 async function show_all_the_BL_Importer_records(theBLnumber){
 
     console.log("Importer recording");
+    console.log("BLnumber!!!!");
+    console.log( theBLnumber );
     var recipientPrivateKey = document.getElementById("Importer_privatekey_name").value;
     let queue_length = await getStackLength();
-
-    console.log("What is the val of queue_length");
-    console.log( queue_length);
-
+    console.log("Queue_length!!!!!!");
+    console.log(queue_length);
     for(var index=0; index<queue_length; index++){
 
         let BL_result = await getencryptedmessagefromstack(theBLnumber, index);
+        console.log("Did you have the BL_result");
+        console.log(BL_result);
         var address_one = BL_result['address_one'];
         var address_two = BL_result['address_two'];
         var message_registration_time = BL_result['_message_registration_time'];
@@ -94539,7 +94553,15 @@ async function show_all_the_BL_Importer_records(theBLnumber){
         console.log( "Message_Registration_time: ", BL_result['_message_registration_time'] );
         console.log("- - - - - - - - -");
 
-        if( address_two == '0x3C95107cAd460D3989F2dB09606BB436c2f47482' ){
+        if( (address_two == '0x3C95107cAd460D3989F2dB09606BB436c2f47482') ){
+
+            let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
+
+            $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one +'</td><td>' +
+            address_two + '</td><td>' + message_registration_time + '</td><td>' + decrypted_message + '</td></tr>');
+        }
+
+        if( address_two == '0x9eb378EFfa2bE988B96431B421bEd2F859006A94' ){
 
             let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
             $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one +'</td><td>' +
@@ -94579,16 +94601,21 @@ async function show_all_the_BL_exporter_records(theBLnumber){
         console.log("- - - - - - - - -");
 
         if( address_two == '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b' ){
+            
+            let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
+            $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one +'</td><td>' +
+            address_two + '</td><td>' + message_registration_time + '</td><td>' + decrypted_message + '</td></tr>');
+        }
 
+        if( address_two == '0x3cF2DEdffC74ab8776f61C2d7F261c121c16F45c' ){
+            
             let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
             $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one +'</td><td>' +
             address_two + '</td><td>' + message_registration_time + '</td><td>' + decrypted_message + '</td></tr>');
         }
 
     }
-
 }
-
 
 
 /*2020/12/20 add*/
@@ -94599,7 +94626,7 @@ async function show_all_the_BL_Carrier_records(theBLnumber){
     var recipientPrivateKey = document.getElementById("carrier_privatekey_name").value;
     let queue_length = await getStackLength();
 
-    console.log("What is the val of queue_length");
+    console.log("Queue_length!!!!");
     console.log( queue_length);
 
     for(var index=0; index<queue_length; index++){
@@ -94624,6 +94651,14 @@ async function show_all_the_BL_Carrier_records(theBLnumber){
             let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
             $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one + '(進口商)' + '</td><td>' +
             address_two + '(船公司)' + '</td><td>' + message_registration_time + '</td><td>' + decrypted_message + '</td></tr>');
+        }
+
+        if( address_two == '0x87919efD1fbBEC204aA429fab906C5AF0196E795'){
+
+            let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
+            $("#Bill_of_ladings_record_table tbody").append('<tr><td>'+ address_one + '(進口商)' + '</td><td>' +
+            address_two + '(船公司)' + '</td><td>' + message_registration_time + '</td><td>' + decrypted_message + '</td></tr>');
+
         }
 
     }   
@@ -94665,36 +94700,28 @@ window.onload = function(){
         /*2020/12/15 edit*/
         var theBLnumber = get_cookie_BL_number("BLnumber");
 
-        /*2020/12/29 edit*/
-        /*The address_one needs getting from the smartcontract*/
-
-        /*var address_one = '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b';*/
-        var address_one = get_current_working_address();
-        console.log("The address_one is");
-        console.log( address_one );
 
         var address_two = $("#account_two_operation_exporter").val();
+        var address_three = '0x87919efD1fbBEC204aA429fab906C5AF0196E795';
 
-        if(address_two == '0x3C95107cAd460D3989F2dB09606BB436c2f47482'){
+        setTimeout( function(){
 
-           console.log("Oh Yeah the address three is Carrier");
-           address_three = '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28';
-
-           setTimeout( function(){
-              executeonExporterOption(operation_option, theBLnumber, address_one, address_two, address_three);
-           },10);
-
-        }
-
-        if(address_two == '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28'){
+              let address_one_promise = get_current_working_address();
+              address_one_promise.then( function(result){
+                  var address_one = result;
+                  console.log("The val for address_one");
+                  console.log( address_one);
+                  executeonExporterOption(operation_option, theBLnumber, address_one, address_two, address_three);
+              })
+        },10);
+        /*if(address_two == '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28'){
 
            console.log("Oh Yeah the address three is Importer");
            address_three = '0x3C95107cAd460D3989F2dB09606BB436c2f47482';
            setTimeout( function(){
               executeonExporterOption(operation_option, theBLnumber, address_one, address_two, address_three);
            },10);
-        }
-
+        }*/
     });
 
     /*2020/11/13 it is because for importer, address_one will always be importer's address*/
@@ -94705,14 +94732,22 @@ window.onload = function(){
 
         var theBLnumber = get_cookie_BL_number("BLnumber");
 
-        var address_one = get_current_working_address();
-        console.log("The address_one is");
-        console.log( address_one );
-
         var address_two = $("#account_two_operation_Importer").val();
+        var address_three = '0x87919efD1fbBEC204aA429fab906C5AF0196E795';
+        
+        setTimeout( function(){
+
+              let address_one_promise = get_current_working_address();
+              address_one_promise.then( function(result){
+                  var address_one = result;
+                  console.log("The val for address_one");
+                  console.log( address_one);
+                  executeonImporterOption(operation_option, theBLnumber, address_one, address_two, address_three);
+              })
+        },10);
 
         /*2020/11/28 add*/
-        if(address_two == '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b'){
+        /*if(address_two == '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b'){
 
            console.log("Oh Yeah the address three is Carrier")
            address_three ='0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28';  
@@ -94729,7 +94764,7 @@ window.onload = function(){
               executeonImporterOption(operation_option, theBLnumber, address_one, address_two, address_three);
            },10);
 
-        }
+        }*/
 
     });
 
@@ -94739,13 +94774,22 @@ window.onload = function(){
         var operation_option = $("#account_two_operation_carrier_unit").val();
         var theBLnumber = get_cookie_BL_number("BLnumber");
 
-        var address_one = get_current_working_address();
-        console.log("The address_one is");
-        console.log( address_one );
-
         var address_two = $("#account_two_operation_carrier").val();
+        var address_three = '0x3cF2DEdffC74ab8776f61C2d7F261c121c16F45c';
+
+        setTimeout( function(){
+
+              let address_one_promise = get_current_working_address();
+              address_one_promise.then( function(result){
+                  var address_one = result;
+                  console.log("The val for address_one");
+                  console.log( address_one);
+                  executeonCarrierOption(operation_option, theBLnumber, address_one, address_two, address_three);
+              })
+        },10);
+
         /*2020/11/28 add*/
-        if(address_two == '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b'){
+        /*if(address_two == '0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b'){
 
            console.log("Oh Yeah the address three is Importer");
            address_three ='0x3C95107cAd460D3989F2dB09606BB436c2f47482';  
@@ -94761,7 +94805,7 @@ window.onload = function(){
            setTimeout( function(){
               executeonCarrierOption(operation_option, theBLnumber, address_one, address_two, address_three);
            },10);
-        }
+        }*/
 
     });
 
@@ -94775,14 +94819,21 @@ window.onload = function(){
     });
 
 
-    $("#BLstatussubmit_Carrier").click( function(){
+    $("#BLstatussubmit_carrier").click( function(){
 
         var theBLnumber = get_cookie_BL_number("BLnumber");
-        console.log("Before Carrier queueing, what is the val of theBLnumber");
-        console.log(theBLnumber);
-
         setTimeout( function(){
             query_from_Carrier_and_decrypt(theBLnumber);
+        },10);
+
+    });
+
+
+    $("#BLstatussubmit_Importer").click( function(){
+        
+        var theBLnumber = get_cookie_BL_number("BLnumber");
+        setTimeout( function(){
+            query_from_Importer_and_decrypt(theBLnumber);
         },10);
 
     });
@@ -94790,17 +94841,17 @@ window.onload = function(){
     $("#BLstatuscheck_Importer").click( function(){
         
         var theBLnumber = get_cookie_BL_number("BLnumber");
-
         setTimeout( function(){
             show_all_the_BL_Importer_records(theBLnumber);
         },10);
+
     });
 
     /*2020/12/20 add*/
     /*tomorrow starts*/
     $("#BLstatuscheck_Exporter").click( function(){
         
-        console.log("Oh yeah, we are doing the sort")
+        console.log("Checking the status now!!!")
         var theBLnumber = get_cookie_BL_number("BLnumber");
 
         setTimeout( function(){

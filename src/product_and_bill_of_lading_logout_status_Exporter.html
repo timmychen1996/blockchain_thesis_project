@@ -637,7 +637,12 @@
 
                <div class="form">
                  <div class="form-box1">
+                   
                    <div class="form-box1-01">
+                    <label for="name">輸入私鑰:<input type="text" id="exporter_privatekey_name" placeholder="私鑰名稱"></label>
+                   </div>
+                   <div class="form-box1-02">
+
                     <label for="select">單位:</label>
                         <select name="account_two_operation_exporter" id="account_two_operation_exporter">
 
@@ -665,7 +670,7 @@
                            <option value="裝船通知">裝船通知</option>
                         </select>
                    </div>
-                   <div class="form-box1-02">  
+                   <div class="form-box1-03">  
                     <label for="select">單位:</label>
                         <select name="account_two_status_exporter_unit" id="account_two_status_exporter_unit">
 
@@ -682,12 +687,11 @@
                           0x87919efD1fbBEC204aA429fab906C5AF0196E795(船公司二)</option>
                           
                         </select>
-                        <label for="name">輸入私鑰:<input type="text" id="exporter_privatekey_name" placeholder="私鑰名稱"></label>
                         <input type="button" id= "BLstatussubmit_exporter" value="查詢">
                         <input type="button" id= "BLstatuscheck_Exporter" value="檢查">
                    </div>
                    <div class="form-box1-03">
-                        <label id="BLtransferstate_Exporter" for="name">提單移轉狀態:</label>
+                        <label id="BLtransferstate_Exporter" for="name">目前提單移轉狀態:</label>
                    </div>
                  </div>
               </div>
@@ -720,6 +724,5 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="new.js"></script>
-<script src="app.js"></script>
-
+<script src="main_compile.js"></script>
 </html>
