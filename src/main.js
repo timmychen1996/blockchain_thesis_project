@@ -325,75 +325,59 @@ var contractABI_bill_of_ladbasic = [
 
 var contractABI_product =[
   {
-    "constant": true,
-    "inputs": [],
-    "name": "getProductlength",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "product_mapping_index",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
+    "constant": false,
     "inputs": [
       {
         "name": "theProductnumber",
         "type": "uint256"
+      },
+      {
+        "name": "product_day",
+        "type": "string"
       }
     ],
-    "name": "getProductone",
-    "outputs": [
-      {
-        "name": "product_name",
-        "type": "string"
-      },
-      {
-        "name": "company_name",
-        "type": "string"
-      },
-      {
-        "name": "dispatch_time",
-        "type": "string"
-      },
-      {
-        "name": "receive_time",
-        "type": "string"
-      },
-      {
-        "name": "dispatch_amount",
-        "type": "uint256"
-      },
-      {
-        "name": "receive_amount",
-        "type": "uint256"
-      }
-    ],
+    "name": "setProductDay",
+    "outputs": [],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theProductnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "number_and_date_of_invoice",
+        "type": "string"
+      },
+      {
+        "name": "certificate_number",
+        "type": "string"
+      },
+      {
+        "name": "company_address",
+        "type": "string"
+      },
+      {
+        "name": "dangerous_or_flammable_cargo",
+        "type": "string"
+      },
+      {
+        "name": "product_status",
+        "type": "string"
+      },
+      {
+        "name": "product_time",
+        "type": "string"
+      }
+    ],
+    "name": "setProductfinal",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -435,6 +419,55 @@ var contractABI_product =[
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theProductnumber",
+        "type": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "name": "exporter",
+        "type": "string"
+      },
+      {
+        "name": "consignee",
+        "type": "string"
+      },
+      {
+        "name": "means_of_transport_and_route",
+        "type": "string"
+      },
+      {
+        "name": "incoterns",
+        "type": "string"
+      },
+      {
+        "name": "bill_of_lading",
+        "type": "string"
+      }
+    ],
+    "name": "setProducttwo",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "ProductTransfer_addr",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -442,30 +475,11 @@ var contractABI_product =[
         "type": "uint256"
       }
     ],
-    "name": "getupdateProductDay",
+    "name": "getProductDay",
     "outputs": [
       {
-        "name": "update_product_day",
+        "name": "product_day",
         "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256"
-      }
-    ],
-    "name": "getProductMappingId",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
       }
     ],
     "payable": false,
@@ -512,42 +526,6 @@ var contractABI_product =[
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theProductnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "update_product_day",
-        "type": "string"
-      }
-    ],
-    "name": "updateProductDay",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theProductnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "product_day",
-        "type": "string"
-      }
-    ],
-    "name": "setProductDay",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "constant": true,
     "inputs": [
       {
@@ -555,15 +533,31 @@ var contractABI_product =[
         "type": "uint256"
       }
     ],
-    "name": "getshippingorderone",
+    "name": "getProductone",
     "outputs": [
       {
-        "name": "dangerous_or_flammable_cargo",
+        "name": "product_name",
         "type": "string"
       },
       {
-        "name": "consignee",
+        "name": "company_name",
         "type": "string"
+      },
+      {
+        "name": "dispatch_time",
+        "type": "string"
+      },
+      {
+        "name": "receive_time",
+        "type": "string"
+      },
+      {
+        "name": "dispatch_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "receive_amount",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -617,10 +611,14 @@ var contractABI_product =[
         "type": "uint256"
       }
     ],
-    "name": "getupdateProductTime",
+    "name": "getshippingorderone",
     "outputs": [
       {
-        "name": "update_product_time",
+        "name": "dangerous_or_flammable_cargo",
+        "type": "string"
+      },
+      {
+        "name": "consignee",
         "type": "string"
       }
     ],
@@ -636,10 +634,10 @@ var contractABI_product =[
         "type": "uint256"
       }
     ],
-    "name": "getProductDay",
+    "name": "getupdateProductDay",
     "outputs": [
       {
-        "name": "product_day",
+        "name": "update_product_day",
         "type": "string"
       }
     ],
@@ -648,142 +646,23 @@ var contractABI_product =[
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
     "inputs": [
       {
         "name": "theProductnumber",
         "type": "uint256"
-      },
-      {
-        "name": "number_and_date_of_invoice",
-        "type": "string"
-      },
-      {
-        "name": "certificate_number",
-        "type": "string"
-      },
-      {
-        "name": "company_address",
-        "type": "string"
-      },
-      {
-        "name": "dangerous_or_flammable_cargo",
-        "type": "string"
-      },
-      {
-        "name": "product_status",
-        "type": "string"
-      },
-      {
-        "name": "product_time",
-        "type": "string"
       }
     ],
-    "name": "setProductfinal",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theProductnumber",
-        "type": "uint256"
-      },
+    "name": "getupdateProductTime",
+    "outputs": [
       {
         "name": "update_product_time",
         "type": "string"
       }
     ],
-    "name": "updateProductTime",
-    "outputs": [],
     "payable": false,
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theProductnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "receive_time",
-        "type": "string"
-      },
-      {
-        "name": "dispatch_time",
-        "type": "string"
-      },
-      {
-        "name": "receive_amount",
-        "type": "uint256"
-      },
-      {
-        "name": "dispatch_amount",
-        "type": "uint256"
-      },
-      {
-        "name": "dangerous_or_flammable_cargo",
-        "type": "string"
-      },
-      {
-        "name": "product_status",
-        "type": "string"
-      }
-    ],
-    "name": "updateProduct",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "theProductnumber",
-        "type": "uint256"
-      },
-      {
-        "name": "price",
-        "type": "uint256"
-      },
-      {
-        "name": "exporter",
-        "type": "string"
-      },
-      {
-        "name": "consignee",
-        "type": "string"
-      },
-      {
-        "name": "means_of_transport_and_route",
-        "type": "string"
-      },
-      {
-        "name": "incoterns",
-        "type": "string"
-      },
-      {
-        "name": "bill_of_lading",
-        "type": "string"
-      }
-    ],
-    "name": "setProducttwo",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
   }
 ];
 
@@ -1727,7 +1606,7 @@ var contractABI_BLTransfer =[
 
 Web3 = require('web3');
 
-var contractAddress_product = '0x4F9221F533a62Cd8e5562C7AfD509B630819Ab31';
+var contractAddress_product = '0x9Cd7EAeE9f112d87e6ae7a42aaD5a9b3dd1F47dd';
 var contractAddress_letter_of_credit = '0x62E41264c9b16c70789feAFa80D779e0B6dF1199';
 var contractAddress_route = '0xce9882a7259970Cb0dD17FA4B4e55367ee18D3f4';
 var contractAddress_BL_transfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C'; 
@@ -3298,7 +3177,7 @@ async function show_recent_bill_of_ladings(){
           if ( BL_number>0 ){
             /*2020/12/14 add*/
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+ BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Importer.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Importer.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -3313,7 +3192,7 @@ async function show_recent_bill_of_ladings(){
 
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+
             BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Exporter.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Exporter.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -3328,7 +3207,7 @@ async function show_recent_bill_of_ladings(){
 
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+
             BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Carrier.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Carrier.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -3378,7 +3257,7 @@ async function show_recent_products(){
 
             /*2020/12/14 add*/
             $("#Products_table tbody").append('<tr><td>'+ product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Importer.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product ){
             return true;
@@ -3392,7 +3271,7 @@ async function show_recent_products(){
           if ( product_number >0 ){
             $("#Products_table tbody").append('<tr><td>'+
             product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Exporter.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product ){
             return true;
@@ -3407,14 +3286,14 @@ async function show_recent_products(){
 
             $("#Products_table tbody").append('<tr><td>'+
             product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Carrier.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product){
             return true;
           }
 
         }
-
+        
     }
 
 }
@@ -3453,8 +3332,8 @@ async function bill_of_ladings_number_link(result){
 async function products_link(result){
 
    if(result){
-    
-     console.log("are_you_kkkkkk");
+
+     
      var table = document.getElementById("Products_table");
      var rows = table.getElementsByTagName("tr");
      for (i = 1; i < rows.length; i++) {
@@ -3478,18 +3357,6 @@ async function products_link(result){
   } 
 }
 
-
-/*1/12*/
-/*Here, we will use later*/
-/*async function products_number_link(result){
-
-  if(result){
-
-    console.log("product_okkk");
-    var 
-
-  }  
-}*/
 
 /*2020/12/14 add*/
 async function show_bill_of_ladings_number_and_link(){

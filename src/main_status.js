@@ -915,6 +915,218 @@ var contractABI_BLTransfer =[
   }
 ];
 
+var contractABI_ProductTransfer = [
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "ArrivedInPort",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "Failed",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "Finished",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "InPackaged",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "theProductnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "setProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProduct",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getProductlength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProductMappingId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "theProductnumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProductMappingIndex",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Product",
+    "outputs": [
+      {
+        "name": "Product_id",
+        "type": "uint256"
+      },
+      {
+        "name": "Productstate",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "Productmapping_index",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+
+];
 
 Web3 = require('web3');
 otplib = require('otplib');
@@ -925,7 +1137,7 @@ ethers = require('ethers');
 var contractAddress_LCtransfer = '0xF4799B5d43bF682d9Fb70076C0a09B53c5B3C403';
 var contractAddress_account_key_message = '0x99420D024a66409eaD67BA03598C030d73d0cE81';
 var contractAddress_BLtransfer = '0xAfCD83b69173eB6498CA8e76435C875C770ed37C';
-
+var contractAddress_Producttransfer = "0x6139669525300BC6b557833Ca5BD02Ce44757D09";
 
 var web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:7545") );
 
@@ -934,12 +1146,17 @@ var LCtransferPseudoRest = new web3.eth.Contract( contractABI_LCtransfer, contra
 var AccountPseudoRest = new web3.eth.Contract( contractABI_account_key_message, contractAddress_account_key_message);
 var BLtransferPseudoRest = new web3.eth.Contract( contractABI_BLTransfer,contractAddress_BLtransfer);
 
+/*2021/1/16 add*/
+var ProducttransferPseudoRest = new web3.eth.Contract( contractABI_ProductTransfer,contractAddress_Producttransfer); 
+
 var user_account = ['0x474e95dA5D93071CaC324cd294Bc5ecea9d9924b', '0x3C95107cAd460D3989F2dB09606BB436c2f47482', 
 '0x3cF2DEdffC74ab8776f61C2d7F261c121c16F45c','0x9eb378EFfa2bE988B96431B421bEd2F859006A94','0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28'];
 
 
 var LC_transfer_state = ['信用狀尚未產生', '信用狀進口商要求', '信用狀出口商接受', '信用狀已發行', '信用狀已告知', '完成貨物運送'];
 var BL_transfer_state = ['提單已產生','提單要求','提單接受','提示提單','洽訂艙位','裝船','交付提單','發行小提單','裝船通知','拿貨'];
+/*2020/1/17*/
+var Product_transfer_state = ['尚未出貨','出貨','裝船出港','卸貨入港' ,'完成點貨並同時提貨','未到貨']; 
 
 var defaultGas = 900000;
 /*2020/12/8*/
@@ -948,6 +1165,9 @@ may be two times*/
 var encrypted_message_count_exporter = 0;
 var encrypted_message_count_carrier  = 0;
 var encrypted_message_count_Importer = 0;
+
+/*2020/1/16*/
+var encrypted_message_count_Warehouser = 0;
 
 
 
@@ -1130,11 +1350,103 @@ function deliverBL(theBLindex, address_one, address_two, address_three){
   });
 }
 
+
+/*2020/1/18 add*/
+function productfinish(theproductindex){
+
+  return ProducttransferPseudoRest.methods.Finished(theproductindex).send(
+  {
+    from: '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28',
+    gas: defaultGas
+  }).then( function(error,result){
+      
+      if(result){
+          console.log("Oh yeah we found that the Importer can finish");
+          console.log("result %o",result);
+      }
+      else{
+          console.log(error);
+      }
+  });
+}
+
+/*2020/1/18 add*/
+
+
+/*2020/1/18 add InPackaged meaning 出貨*/
+function productInPackaged(theproductindex){
+
+  return ProducttransferPseudoRest.methods.InPackaged(theproductindex).send(
+  {
+    from: '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28',
+    gas: defaultGas
+  }).then( function(error,result){
+      
+      if(result){
+          console.log("Oh yeah we found that the Exporter can InPackaged");
+          console.log("result %o",result);
+      }
+      else{
+          console.log(error);
+      }
+  });
+}
+
+function productLoadandDepart(theProductindex){
+   
+  return ProducttransferPseudoRest.methods.LoadandDepart(theproductindex).send(
+  {
+    from: '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28',
+    gas: defaultGas
+  }).then( function(error,result){
+      
+      if(result){
+          console.log("Oh yeah we found that the Exporter can InPackaged");
+          console.log("result %o",result);
+      }
+      else{
+          console.log(error);
+      }
+  });
+
+}
+
+function productUnloadandArrival(theProductindex){
+
+  return ProducttransferPseudoRest.methods.UnloadandArrival(theproductindex).send(
+  {
+    from: '0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28',
+    gas: defaultGas
+  }).then( function(error,result){
+      
+      if(result){
+          console.log("Oh yeah we found that the Exporter can UnloadandArrival");
+          console.log("result %o",result);
+      }
+      else{
+          console.log(error);
+      }
+  });
+
+}
+
+
+
+
 /*2020/12/6 changes, the BL needs the index*/
 function getBLTransferstate(index, address_one, address_two){
 
   return BLtransferPseudoRest.methods.getBL(index, address_one, address_two).call().then( function(BLTransferstate){  
       return BLTransferstate;
+  });
+
+}
+
+/*2020/1/18 changes, the Product needs the index*/
+function getProductTransferstate(index){
+
+  return ProducttransferPseudoRest.methods.getProduct(index).call().then( function( ProductTransferstate){  
+      return ProductTransferstate;
   });
 
 }
@@ -1149,12 +1461,30 @@ function getBLMappingId(index){
 
 }
 
+/*2021/1/16 add*/
+function getProductMappingId(index){
+
+  return ProductTransferPseudoRest.methods.getProductMappingId(index).call().then( function(Product_number){  
+      return Product_number;
+  });
+
+}
+
 
 function getBLMappingIndex(theBLnumber){
 
   return BLtransferPseudoRest.methods.getBLMappingIndex(theBLnumber).call().then( function(BL_index){  
       return BL_index;
   });
+}
+
+/*2021/1/16 add*/
+function getProductMappingIndex(theProductnumber){
+
+  return ProductTransferPseudoRest.methods.getProductMappingIndex(theProductnumber).call().then( function(Product_index){  
+      return Product_index;
+  });
+
 }
 
 
@@ -1170,8 +1500,8 @@ function getAccountCareer(career){
 
 
 /*2020/12/19 add*/
-function getStackLength(){
-  return AccountPseudoRest.methods.getStackLength().call().then( function( queue_length ){
+function getQueueLength(){
+  return AccountPseudoRest.methods.getQueueLength().call().then( function( queue_length ){
       return queue_length;
   });  
 }
@@ -1235,6 +1565,15 @@ function messageencrypted(theBLnumber, address_one, address_two, thetime, encryp
 
   });
 }
+
+/*2021/1/18 add*/
+function productmessageencrypted
+
+
+
+
+
+
 
 
 /*2020/11/17 add*/
@@ -1406,6 +1745,36 @@ async function request_from_Importer_and_taketheStuff( theBLindex, address_one, 
 
   let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, taketheStuff_from_Importer_time, encrypted_message_one);
   /*let encrypt_finish_two = await messageencrypted( BL_number, address_one, address_three, taketheStuff_from_Importer_time, encrypted_message_two);*/
+
+}
+
+async function takestuff_from_Importer_and_encrypt( theProductindex, address_one, address_two, address_three){
+
+  let taketheStuff_from_Importer = await productfinish( theProductindex ); 
+  let message_number_one = await getProductTransferstate( theProductindex );
+  let message_one = Product_transfer_state[ message_number_one ];
+  var senderPrivateKey = document.getElementById("Importer_privatekey_name").value;
+  let recipientPublicKey_all_one = await getaccountpublickey(address_three);
+  var recipientPublicKey_one = recipientPublicKey_all_one.substring(2);
+
+  let encrypted_message_one = await encryptedmessagereturn( message_one, senderPrivateKey, recipientPublicKey_one);
+  /*let encrypted_message_two = await encryptedmessagereturn( message_two, senderPrivateKey, recipientPublicKey_two);*/
+  console.log("- - - - - - - - - - - - - - - - -  - - -");
+  console.log("TakingtheStuff from Importer:");
+  console.log("Encrypted_message_one:");
+  console.log(encrypted_message_one);
+  console.log("- - - - - - - - - - - - - - - - -  - - -");
+
+  let Product_number = await getProductMappingId(theProductindex);
+
+  /*2020/12/20 here we need to add the time consideration*/
+  const time_now = Date.now();
+  var current_time = new Date( time_now );
+  var taketheStuff_from_Importer_time = current_time.toTimeString();
+
+  let encrypt_finish_one = await messageencrypted( BL_number, address_one, address_two, taketheStuff_from_Importer_time, encrypted_message_one);
+
+  
 
 }
 
@@ -1957,9 +2326,22 @@ async function executeonImporterOption(operation_option, theBLnumber, address_on
       request_from_Importer_and_showtheBL( theBLindex, address_one, address_two, address_three);
   }
 
-  if( operation_option == "提貨"  ){
+  /*2020/1/18 we will comment out 提貨 option*/
+  /*if( operation_option == "提貨"  ){
       console.log("Now we will take the stuff");
       request_from_Importer_and_taketheStuff( theBLindex, address_one, address_two, address_three);
+  }*/
+}
+
+
+async function executeonImporterProductOption(operation_option, theProductnumber, address_one, address_two, address_three){
+
+  /*2021/1/16 add*/
+  var theProductindex = await getProductMappingIndex(theProductnumber);
+  if( operation_option == "提貨" ){
+
+      console.log("Now we will take the stuff");
+      takestuff_from_Importer_and_encrypt( theProductindex, address_one, address_two, address_three);
   }
 }
 
@@ -1988,10 +2370,19 @@ async function executeonExporterOption(operation_option, theBLnumber, address_on
       console.log("Now we will loadonship and notify");
       shipnotification_from_Exporter_and_encrypt( theBLindex ,address_one, address_two, address_three);
   }
-
 }
 
+/*2020/1/16 add*/
+async function executeonExporterProductOption(operation_option, theProductnumber, address_one, address_two, address_three){
 
+  /*2021/1/16 add*/
+  var theProductindex = await getProductMappingIndex( theProductnumber );
+  if( operation_option == "出貨" ){
+
+      console.log("Now we will deliver the stuff");
+      deliverstuff_from_Exporter_and_encrypt( theProductindex, address_one, address_two, address_three);
+  }
+}
 
 
 /*2020/12/4 add, this one is for carrier*/
@@ -2023,7 +2414,7 @@ async function show_all_the_BL_Importer_records(theBLnumber){
     console.log("BLnumber!!!!");
     console.log( theBLnumber );
     var recipientPrivateKey = document.getElementById("Importer_privatekey_name").value;
-    let queue_length = await getStackLength();
+    let queue_length = await getQueueLength();
     console.log("Queue_length!!!!!!");
     console.log(queue_length);
     for(var index=0; index<queue_length; index++){
@@ -2045,7 +2436,7 @@ async function show_all_the_BL_Importer_records(theBLnumber){
         console.log( "Message_Registration_time: ", BL_result['_message_registration_time'] );
         console.log("- - - - - - - - -");
 
-        if( (address_two == '0x3C95107cAd460D3989F2dB09606BB436c2f47482') ){
+        if( address_two == '0x3C95107cAd460D3989F2dB09606BB436c2f47482' ){
 
             let decrypted_message = await decryptedmessagereturn( encrypted_message, recipientPrivateKey, senderPublicKey);
 
@@ -2070,7 +2461,7 @@ async function show_all_the_BL_exporter_records(theBLnumber){
 
     console.log("Exporter recording!!!!");
     var recipientPrivateKey = document.getElementById("exporter_privatekey_name").value;
-    let queue_length = await getStackLength();
+    let queue_length = await getQueueLength();
 
     console.log("What is the val of queue_length");
     console.log( queue_length);
@@ -2116,7 +2507,7 @@ async function show_all_the_BL_Carrier_records(theBLnumber){
 
     console.log("Carrier recording!!!");
     var recipientPrivateKey = document.getElementById("carrier_privatekey_name").value;
-    let queue_length = await getStackLength();
+    let queue_length = await getQueueLength();
 
     console.log("Queue_length!!!!");
     console.log( queue_length);
@@ -2259,6 +2650,34 @@ window.onload = function(){
         }*/
 
     });
+
+    /*2020/1/16*/
+    /*Here the address two will but still not sure yet*/
+    /*Address three will assume this address: 0xC048a66959a14af46d67C4D07bE6936081343099 */
+
+    $("#account_two_operation_Importer_product_unit").change( function(){
+
+        var operation_option = $("#account_two_operation_Importer_product_unit").val();
+
+        var theProductnumber = get_cookie_Product_number("Productnumber");
+        var address_two = $("#account_two_operation_Importer_product").val();
+        var address_three = "0xC048a66959a14af46d67C4D07bE6936081343099";
+
+        setTimeout( function(){
+
+              let address_one_promise = get_current_working_address();
+              address_one_promise.then( function(result){
+                  var address_one = result;
+                  console.log("Product stage now");
+                  console.log("The val for address_one");
+                  console.log( address_one);
+                  executeonImporterProductOption(operation_option, theProductnumber, address_one, address_two, address_three);
+              })
+        },10);
+
+    });
+
+
 
     /*2020/12/4 add for carrier request*/
     $("#account_two_operation_carrier_unit").change( function(){

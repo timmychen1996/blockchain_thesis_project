@@ -63262,7 +63262,7 @@ async function show_recent_bill_of_ladings(){
           if ( BL_number>0 ){
             /*2020/12/14 add*/
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+ BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Importer.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Importer.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -63277,7 +63277,7 @@ async function show_recent_bill_of_ladings(){
 
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+
             BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Exporter.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Exporter.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -63292,7 +63292,7 @@ async function show_recent_bill_of_ladings(){
 
             $("#Bill_of_ladings_table tbody").append('<tr><td>'+
             BL_number +'</td><td>' +
-            bill_of_lading_info_day + '</td><td><a href="./product_and_bill_of_lading_logout_status_Carrier.html">查詢/修改</a></td></tr>');
+            bill_of_lading_info_day + '</td><td><a href="./bill_of_lading_logout_status_Carrier.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_bol){
             return true;
@@ -63342,7 +63342,7 @@ async function show_recent_products(){
 
             /*2020/12/14 add*/
             $("#Products_table tbody").append('<tr><td>'+ product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Importer.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product ){
             return true;
@@ -63356,7 +63356,7 @@ async function show_recent_products(){
           if ( product_number >0 ){
             $("#Products_table tbody").append('<tr><td>'+
             product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Exporter.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product ){
             return true;
@@ -63371,14 +63371,14 @@ async function show_recent_products(){
 
             $("#Products_table tbody").append('<tr><td>'+
             product_number +'</td><td>' +
-            product_info_day + '</td><td>尚未到貨</td></tr>');
+            product_info_day + '</td><td><a href="./product_logout_status_Carrier.html">查詢/修改</a></td></tr>');
           }
           if( index+1 == number_of_product){
             return true;
           }
 
         }
-
+        
     }
 
 }

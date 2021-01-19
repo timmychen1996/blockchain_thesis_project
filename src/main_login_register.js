@@ -440,8 +440,9 @@ var defaultGas = 900000;
 /*2020/12/25 add*/
 /*Maybe this one can not be, we will add the other one*/
 var  exporter_first_address_used = false;
-var importer_first_address_used = false;
-var carrier_first_address_used = false;
+var  importer_first_address_used = false;
+var  carrier_first_address_used = false;
+var  warehouser_first_address_used = false;
 
 
 function registerUserInfo( user_account, user_password, user_role_option, user_address){
@@ -625,10 +626,27 @@ async function addUserinfo(result){
 
         }
 
-        let pub_key = await generateKeyPair(user_address);
+        if( user_role_option == 'Warehouser'){
+        
+            if( warehouser_first_address_used ){
+                 
+                 var user_address = '0x85630122aFCabdbEcB163763b5005562E9B527d5';
+                 console.log("Yep we get the second warehouser user_address");
+            }
+            else{
+                
+                 var user_address = await user_role_to_ganache_account(user_role_option);
+                 console.log("The first warehouser user_address");
+                 console.log( user_address );
+                 warehouser_first_address_used = true;
+
+            }
+
+        }
+        let pub_key = await generatePublicKey(user_address);
         let account_with_key = await setAccountwithKey(user_address, pub_key);
         let user_registered_info = await registerUserInfo( user_account, user_password, user_role_option, user_address);
-        console.log("After")
+        console.log("After");
         console.log("The val of user_address");
         console.log( user_address );
         console.log("The val of pub_key");
@@ -636,7 +654,6 @@ async function addUserinfo(result){
         console.log("OK_we_finish_adding_the_user_role_option");
         console.log( user_role_option );        
         return pub_key;
-
     }
 
 }
@@ -754,6 +771,25 @@ async function getloginUserInfoafteradd(){
           },10);
     }
 
+    /*2021/1/14 add*/
+    if( show_user_role_option == 'Warehouser'){
+
+          set_cookie("WARE");
+          setTimeout(function(){
+               
+              add_user_promise = suretoadd();
+              add_user_promise.then(function(result){
+                  
+                  setCurrentWorkingAddress(result, show_user_address).then( function(){
+
+                      window.location.href = './product_and_bill_of_lading_logout_all_Warehouser.html';
+                      console.log("Successful redirect into product_and_bill_of_lading_logout_all_Warehouser.html");
+                  });
+              })
+          },10);
+
+    }
+
     /*if( show_user_role_option == 'Shipper' || show_user_role_option == 'Forwarder' || show_user_role_option == 'Carrier'){
           
           /*document.cookie = "role=SFC; expires=Thu, 18 June 2020 07:28:00 UTC; path=/Users/timothy/eth_todo_list_easy/src/login.html";*/
@@ -838,16 +874,16 @@ function getCookie( role_option ){
 function set_cookie( role_val ) {
 
   const time_now = Date.now();
-  const ten_minutes_time_now = time_now + 20*60*1000;
+  const twenty_minutes_time_now = time_now + 20*60*1000;
   
   var current_time = new Date( time_now );
-  var ten_current_time = new Date( ten_minutes_time_now );
+  var twenty_current_time = new Date( twenty_minutes_time_now );
   console.log("Current Time");
   console.log( current_time);
   console.log("Ten Current Time");
-  console.log( ten_current_time );
+  console.log( twenty_current_time );
 
-  var expires = "expires="+ ten_current_time.toUTCString();
+  var expires = "expires="+ twenty_current_time.toUTCString();
   /*2020/12/27 below is one of the option, if the cookie is not limited to one key-value pair*/
   /*document.cookie = JSON.stringify({publickey: pub_key, role: role_val});*/
   document.cookie = "role=" + role_val + "; " + expires;
@@ -880,6 +916,10 @@ async function check_cookie(){
          
         window.location.href = './product_and_bill_of_lading_logout_all_Carrier.html';
   }
+  else if( user_role_option == "WARE"){
+
+        window.location.href = './product_and_bill_of_lading_logout_all_Warehouser.html';
+  }
   else if( user_role_option == "notset"){
 
         console.log("No role now");
@@ -899,7 +939,7 @@ async function delete_cookie(){
 /*2020/11/6 add*/
 /*Generate Key Pair does not generate publickey and privatekey*/
 /*It only generates publickey*/
-async function generateKeyPair( user_address ){
+async function generatePublicKey( user_address ){
 
     const provider = new ethers.providers.JsonRpcProvider('http://localhost:7545');
     /*provider.getSigner(1) refers to account 1 in ganache console
@@ -929,12 +969,21 @@ async function generateKeyPair( user_address ){
     if( user_address == "0xCE6C125D972360dfe3A21d1d7BC48D91b27fcd28" ){
         var get_signer_index = 4;
     }
-
+    
+    /*This one refers to carrier two*/
     if( user_address == "0x87919efD1fbBEC204aA429fab906C5AF0196E795") {
         var get_signer_index = 5;
     }
 
+    /*2021/1/14 changes*/
+    /*This one refers to warehouse one*/
+    if( user_address == "0x14f98C27a8cCAFCD55D026802B3Bb9ABe6E6B0e2"){
+        var get_signer_index = 6;
+    }
 
+    if( user_address == "0x85630122aFCabdbEcB163763b5005562E9B527d5"){
+        var get_signer_index = 7;
+    }
     const signer = provider.getSigner(get_signer_index);
     const ethAddress = await signer.getAddress();
     const hash = await ethers.utils.keccak256( ethAddress );
@@ -1038,6 +1087,7 @@ window.onload = function() {
                 })
 
           },10);
+          
         }
         /*2020/10/20 practice generateOTP()*/
         /*
