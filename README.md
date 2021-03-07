@@ -1,7 +1,8 @@
 ## About the System
-This is the project for my grad thesis which relates to International trade in Logistics. The project replaces traditional International trade with Dapp. Dapp is the decentralized apllication running on EVM, whose funtionality is implemented by smart contract.
+This is the project for my grad thesis which relates to International trade in Logistics. 
+The project replaces traditional International trade with Dapp. Dapp is the decentralized apllication running on EVM, whose funtionality is implemented by smart contract.
 Our goal is to simplify the International trading process with smart contract and eliminate the unnecessary cost
-withe regard to different documents involvement.
+  withe regard to different documents involvement.
 
 ### Smart Contract
 (1) It is simply a program written in Solidity, which is a language with C++ and javascript
