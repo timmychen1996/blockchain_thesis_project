@@ -17,3 +17,10 @@ Our goal is to simplify the International trading process with smart contract an
 4. Truffle(version 5.1.0)
 5. npm(version 6.11.3)
 6. nod
+
+
+摘要
+有鑑於傳統國際貿易之物件傳遞與貨物運送流程，以往的
+溝通均透過紙本或是傳真的方式，然而會耗費相關人力成本
+及效率，而近年來，有相關之研究透過區塊鏈可程式化功能
+此次研究目的透過區塊鏈之建設環境
