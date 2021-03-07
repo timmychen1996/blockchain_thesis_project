@@ -5,9 +5,9 @@ Our goal is to simplify the International trading process with smart contract an
   withe regard to different documents involvement.
 
 ### Smart Contract
-(1) It is simply a program written in Solidity, which is a language with C++ and javascript
-(2) It executes term of agreement between different parties in certain condition
-(3) After the program is compiled, it will store in Ethereum blockchain environment
+(1) It is simply a program written in Solidity, which is a language with C++ and javascript.   
+(2) It executes term of agreement between different parties in certain condition.   
+(3) After the program is compiled, it will store in Ethereum blockchain environment.   
 
 
 
